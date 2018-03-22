@@ -1,0 +1,1 @@
+pyuic5 test.ui -o base_form.py
