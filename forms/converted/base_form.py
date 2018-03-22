@@ -2,14 +2,13 @@
 
 # Form implementation generated from reading ui file 'test.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 version = "v1"
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -42,10 +41,19 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
         self.menubar.setObjectName("menubar")
+        self.menuSetting = QtWidgets.QMenu(self.menubar)
+        self.menuSetting.setObjectName("menuSetting")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuCredits = QtWidgets.QMenu(self.menubar)
+        self.menuCredits.setObjectName("menuCredits")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuSetting.menuAction())
+        self.menubar.addAction(self.menuCredits.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -54,11 +62,13 @@ class Ui_MainWindow(object):
         self.centralwidget.setLayout(self.gridLayout)
 
 
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton_6.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_7.setText(_translate("MainWindow", "PushButton"))
         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))
+        self.menuSetting.setTitle(_translate("MainWindow", "Setting"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuCredits.setTitle(_translate("MainWindow", "Info"))
 
