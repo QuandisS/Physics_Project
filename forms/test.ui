@@ -32,21 +32,21 @@
        <item>
         <widget class="QPushButton" name="pushButton_6">
          <property name="text">
-          <string>PushButton</string>
+          <string>Ввод данных</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_7">
          <property name="text">
-          <string>PushButton</string>
+          <string>...</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_5">
          <property name="text">
-          <string>PushButton</string>
+          <string>Создать График</string>
          </property>
         </widget>
        </item>
@@ -68,22 +68,72 @@
     <property name="title">
      <string>Setting</string>
     </property>
+    <addaction name="actionSettings_Pack"/>
+    <addaction name="separator"/>
+    <addaction name="actionSpeed"/>
+    <addaction name="actionCustom_planet_settings"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionExport_image_chart"/>
+    <addaction name="actionExport_log_file"/>
    </widget>
    <widget class="QMenu" name="menuCredits">
     <property name="title">
      <string>Info</string>
     </property>
+    <addaction name="actionCredits"/>
+    <addaction name="actionDocumetation"/>
+    <addaction name="actionGitHub_Page"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSetting"/>
    <addaction name="menuCredits"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExport_image_chart">
+   <property name="text">
+    <string>Export image (chart)</string>
+   </property>
+  </action>
+  <action name="actionSettings_Pack">
+   <property name="text">
+    <string>Settings Pack</string>
+   </property>
+  </action>
+  <action name="actionSpeed">
+   <property name="text">
+    <string>Speed</string>
+   </property>
+  </action>
+  <action name="actionCustom_planet_settings">
+   <property name="text">
+    <string>Custom planet settings</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
+   </property>
+  </action>
+  <action name="actionExport_log_file">
+   <property name="text">
+    <string>Export log file</string>
+   </property>
+  </action>
+  <action name="actionDocumetation">
+   <property name="text">
+    <string>Documetation</string>
+   </property>
+  </action>
+  <action name="actionGitHub_Page">
+   <property name="text">
+    <string>GitHub Page</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

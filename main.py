@@ -49,6 +49,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.pushButton_5.clicked.connect(self.draw_plot)
+        self.ui.actionCredits.triggered.connect(self.show_credits)
 
 
         # PLot
@@ -58,10 +59,13 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.gridLayout.addWidget(self.ui.plot)
         self.ui.plot.plot(L)
 
+    def show_credits(self):
+        print('CREDITS CLIKED')
+        pass
+
         #
 
 
-# ТЕЛО ПРОГРАММЫ #
 
 
 # TESTS #
