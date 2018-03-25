@@ -6,7 +6,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from PyQt5.QtGui import QPixmap
-from forms.converted import base_form, credits_form2
+from forms.converted import base_form, credits_form
 from colorama import init
 from colorama import Fore, Back, Style
 import settings_pack
@@ -65,13 +65,15 @@ class MyWin(QtWidgets.QMainWindow):
     def show_credits(self):
         print('CREDITS CLIKED')
         self.mySubwindow = subwindow()
-        self.mySubwindow.createWindow(500, 400)
-        self.mySubwindow.ui = credits_form2.Ui_Form()
-        #self.mySubwindow.ui.setupUi(self.mySubwindow)
+       # self.mySubwindow.createWindow(500, 400)
+        self.mySubwindow.ui = credits_form.Ui_MainWindow()
+        self.mySubwindow.ui.setupUi(self.mySubwindow)
+        self.mySubwindow.show()
 
 
 
-class subwindow(QtGui.QWindow):
+
+class subwindow(QtWidgets.QMainWindow):
     def createWindow(self, WindowWidth, WindowHeight):
         parent = None
         super(subwindow, self).__init__(parent)
