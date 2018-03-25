@@ -12,6 +12,7 @@ from colorama import Fore, Back, Style
 import settings_pack
 import pyqtgraph as pg
 import numpy as np
+import webbrowser
 
 
 
@@ -52,7 +53,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.pushButton_5.clicked.connect(self.draw_plot)
 
         self.ui.actionCredits.triggered.connect(self.show_credits)
-
+        self.ui.actionGitHub_Page.triggered.connect(self.git_page_open)
+        self.ui.actionDocumetation.triggered.connect(self.doc_page_open)
 
         # PLot
     def draw_plot(self):
@@ -70,8 +72,11 @@ class MyWin(QtWidgets.QMainWindow):
         self.mySubwindow.ui.setupUi(self.mySubwindow)
         self.mySubwindow.show()
 
+    def git_page_open(self):
+        webbrowser.open('https://github.com/QuandisS/Physics_Project')
 
-
+    def doc_page_open(self):
+        webbrowser.open('https://github.com/QuandisS/Physics_Project/wiki')
 
 class subwindow(QtWidgets.QMainWindow):
     def createWindow(self, WindowWidth, WindowHeight):
