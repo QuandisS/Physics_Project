@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>840</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -60,7 +60,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>840</width>
      <height>21</height>
     </rect>
    </property>
@@ -85,8 +85,13 @@
     <property name="title">
      <string>Info</string>
     </property>
+    <widget class="QMenu" name="menuDocumetation">
+     <property name="title">
+      <string>Documetation</string>
+     </property>
+    </widget>
     <addaction name="actionCredits"/>
-    <addaction name="actionDocumetation"/>
+    <addaction name="menuDocumetation"/>
     <addaction name="actionGitHub_Page"/>
    </widget>
    <addaction name="menuFile"/>
@@ -115,8 +120,17 @@
    </property>
   </action>
   <action name="actionCredits">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Credits</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
    </property>
   </action>
   <action name="actionExport_log_file">
@@ -124,14 +138,14 @@
     <string>Export log file</string>
    </property>
   </action>
-  <action name="actionDocumetation">
-   <property name="text">
-    <string>Documetation</string>
-   </property>
-  </action>
   <action name="actionGitHub_Page">
    <property name="text">
     <string>GitHub Page</string>
+   </property>
+  </action>
+  <action name="actionjj">
+   <property name="text">
+    <string>jj</string>
    </property>
   </action>
  </widget>

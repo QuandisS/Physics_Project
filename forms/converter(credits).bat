@@ -1,0 +1,1 @@
+pyuic5 credits.ui -o credits_form.py
