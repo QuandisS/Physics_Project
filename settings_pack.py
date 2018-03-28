@@ -34,3 +34,10 @@ earth = planet('test', 'test', 'test')
 
 #Объекты#
 rock = object('test', 'test', 'test', 'test')
+
+planets = {}
+planets.update({'earth' : earth})
+
+
+
+print(planets)

@@ -6,7 +6,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from PyQt5.QtGui import QPixmap
-from forms.converted import base_form, credits_form
+from forms.converted import base_form, credits_form, setting_form
 from colorama import init
 from colorama import Fore, Back, Style
 import settings_pack
@@ -55,6 +55,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionCredits.triggered.connect(self.show_credits)
         self.ui.actionGitHub_Page.triggered.connect(self.git_page_open)
         self.ui.actionDocumetation.triggered.connect(self.doc_page_open)
+        self.ui.actionSettings_Pack.triggered.connect(self.show_settings)
 
         # PLot
     def draw_plot(self):
@@ -71,6 +72,14 @@ class MyWin(QtWidgets.QMainWindow):
         self.mySubwindow.ui = credits_form.Ui_MainWindow()
         self.mySubwindow.ui.setupUi(self.mySubwindow)
         self.mySubwindow.show()
+
+    def show_settings(self):
+        print('SETTING CLICKED')
+        self.setings_subwind = subwindow()
+        self.setings_subwind.ui = setting_form.Ui_MainWindow()
+        self.setings_subwind.ui.setupUi(self.setings_subwind)
+        self.setings_subwind.show()
+        #self.setings_subwind.comboBox.
 
     def git_page_open(self):
         webbrowser.open('https://github.com/QuandisS/Physics_Project')

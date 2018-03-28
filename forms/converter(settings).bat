@@ -1,0 +1,1 @@
+pyuic5 setting_menu.ui -o setting_form.py
