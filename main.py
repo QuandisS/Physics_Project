@@ -38,6 +38,18 @@ print(table, '\n')
 #--------------------------------#
 
 
+###### Variable Settings ############
+
+all_planets = settings_pack.planets
+
+
+###### Selected Settings ############
+
+selected_planet = None
+
+#####################################
+
+
 
 
 # Главный Класс #
@@ -78,8 +90,20 @@ class MyWin(QtWidgets.QMainWindow):
         self.setings_subwind = subwindow()
         self.setings_subwind.ui = setting_form.Ui_MainWindow()
         self.setings_subwind.ui.setupUi(self.setings_subwind)
+
+        def set_planet():
+            global selected_planet
+            selected_planet = all_planets[self.setings_subwind.ui.return_selected()]
+            print('selected planet:', selected_planet)
+            self.setings_subwind.close()
+        self.setings_subwind.ui.pushButton.clicked.connect(set_planet)
         self.setings_subwind.show()
-        #self.setings_subwind.comboBox.
+
+        for i in all_planets.keys():
+            self.setings_subwind.ui.add_item(i)
+
+    def settings_ok_cliked(self):
+        pass
 
     def git_page_open(self):
         webbrowser.open('https://github.com/QuandisS/Physics_Project')

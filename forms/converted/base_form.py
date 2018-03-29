@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuCredits.setTitle(_translate("MainWindow", "Info"))
         self.actionExport_image_chart.setText(_translate("MainWindow", "Export image (chart)"))
-        self.actionSettings_Pack.setText(_translate("MainWindow", "Settings Pack"))
+        self.actionSettings_Pack.setText(_translate("MainWindow", "Planet Select"))
         self.actionSpeed.setText(_translate("MainWindow", "Speed"))
         self.actionCustom_planet_settings.setText(_translate("MainWindow", "Custom planet settings"))
         self.actionCredits.setText(_translate("MainWindow", "Credits"))

@@ -31,12 +31,16 @@ class object:
 
 #Планеты#
 earth = planet('test', 'test', 'test')
+moon = planet('test', 'test', 'test')
+mars = planet('test', 'test', 'test')
 
 #Объекты#
 rock = object('test', 'test', 'test', 'test')
 
 planets = {}
-planets.update({'earth' : earth})
+planets.update({'Earth' : earth})
+planets.update({'Moon': moon})
+planets.update({'Mars': mars})
 
 
 

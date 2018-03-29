@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(471, 298)
+        MainWindow.resize(200, 100)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -51,9 +51,18 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        #test
+        #self.add_item('test')
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Planet Select"))
         self.label.setText(_translate("MainWindow", "Select planet:"))
         self.pushButton.setText(_translate("MainWindow", "Ok"))
+
+    def add_item(self, item):
+        self.comboBox.addItem(item)
+
+    def return_selected(self):
+        return self.comboBox.currentText()
 
