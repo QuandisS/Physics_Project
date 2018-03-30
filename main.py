@@ -62,16 +62,29 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui = base_form.Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle('TTTH')
+        self.ui.speed_label.setText('speed: x' + str(selected_speed))
+        self.ui.planet_label.setText(selected_planet.name + '|')
 
         self.ui.pushButton_5.clicked.connect(self.draw_plot)
 
         self.ui.actionCredits.triggered.connect(self.show_credits)
-        self.ui.actionGitHub_Page.triggered.connect(self.git_page_open)
-        self.ui.actionDocumetation.triggered.connect(self.doc_page_open)
+        self.ui.actionGitHub_Page_2.triggered.connect(self.git_page_open)
+        self.ui.actionDocumentation.triggered.connect(self.doc_page_open)
         self.ui.actionSettings_Pack.triggered.connect(self.show_settings)
         self.ui.actionSpeed.triggered.connect(self.show_speed)
+        self.ui.check_vars.clicked.connect(self.check_vars)
+
 
         # PLot
+
+    def check_vars(self):
+        print('vars is checking...')
+
+        self.ui.speed_label.setText('speed: x' + str(selected_speed))
+        self.ui.planet_label.setText(selected_planet.name + '|')
+
+        print('vars checked!')
+
     def draw_plot(self):
         L = [0, 1, 2, 3, 4, 5 ,6]
         self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
@@ -98,11 +111,15 @@ class MyWin(QtWidgets.QMainWindow):
             selected_planet = all_planets[self.setings_subwind.ui.return_selected()]
             print('selected planet:', selected_planet)
             self.setings_subwind.close()
+            self.ui.speed_label.setText('speed: x' + str(selected_speed))
+            self.ui.planet_label.setText(selected_planet.name + '|')
         self.setings_subwind.ui.pushButton.clicked.connect(set_planet)
         self.setings_subwind.show()
 
         for i in all_planets.keys():
             self.setings_subwind.ui.add_item(i)
+
+
 
     def show_speed(self):
         print('SPEED CLICKED')
@@ -116,6 +133,8 @@ class MyWin(QtWidgets.QMainWindow):
             selected_speed = self.setings_subwind.ui.return_selected()
             print('selected speed:', selected_speed)
             self.setings_subwind.close()
+            self.ui.speed_label.setText('speed: x' + str(selected_speed))
+            self.ui.planet_label.setText(selected_planet.name + '|')
 
         self.setings_subwind.ui.pushButton.clicked.connect(set_speed)
         self.setings_subwind.show()

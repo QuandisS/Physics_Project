@@ -13,10 +13,11 @@ version = 'Pre-Alpha Build'
 # Классы Настроек #
 
 class planet:
-    def __init__(self, radius, average_density, mass):
+    def __init__(self, name, radius, average_density, mass):
         self.radius = radius
         self.average_density = average_density
         self.mass = mass
+        self.name = name
 
 class object:
     def __init__(self, mass, capacity, average_density, form):
@@ -30,9 +31,9 @@ class object:
 
 
 #Планеты#
-earth = planet('test', 'test', 'test')
-moon = planet('test', 'test', 'test')
-mars = planet('test', 'test', 'test')
+earth = planet('Earth', 'test', 'test', 'test')
+moon = planet('Moon', 'test', 'test', 'test')
+mars = planet('Mars', 'test', 'test', 'test')
 
 #Объекты#
 rock = object('test', 'test', 'test', 'test')

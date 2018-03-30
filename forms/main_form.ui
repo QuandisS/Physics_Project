@@ -10,6 +10,12 @@
     <height>603</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <weight>50</weight>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -30,6 +36,38 @@
      <item row="0" column="1">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="planet_label">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="speed_label">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <widget class="QPushButton" name="pushButton_6">
          <property name="text">
           <string>Ввод данных</string>
@@ -37,9 +75,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_7">
+        <widget class="QPushButton" name="check_vars">
          <property name="text">
-          <string>...</string>
+          <string>Проверить данные</string>
          </property>
         </widget>
        </item>
@@ -69,7 +107,6 @@
      <string>Setting</string>
     </property>
     <addaction name="actionSettings_Pack"/>
-    <addaction name="separator"/>
     <addaction name="actionSpeed"/>
     <addaction name="actionCustom_planet_settings"/>
     <addaction name="separator"/>
@@ -85,14 +122,9 @@
     <property name="title">
      <string>Info</string>
     </property>
-    <widget class="QMenu" name="menuDocumetation">
-     <property name="title">
-      <string>Documetation</string>
-     </property>
-    </widget>
     <addaction name="actionCredits"/>
-    <addaction name="menuDocumetation"/>
-    <addaction name="actionGitHub_Page"/>
+    <addaction name="actionDocumentation"/>
+    <addaction name="actionGitHub_Page_2"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSetting"/>
@@ -106,7 +138,7 @@
   </action>
   <action name="actionSettings_Pack">
    <property name="text">
-    <string>Settings Pack</string>
+    <string>Planet</string>
    </property>
   </action>
   <action name="actionSpeed">
@@ -146,6 +178,16 @@
   <action name="actionjj">
    <property name="text">
     <string>jj</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionGitHub_Page_2">
+   <property name="text">
+    <string>GitHub Page</string>
    </property>
   </action>
  </widget>

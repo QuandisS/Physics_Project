@@ -1,1 +1,1 @@
-pyuic5 main_form.ui -o main_form.py
+pyuic5 main_form.ui -o base_form.py
