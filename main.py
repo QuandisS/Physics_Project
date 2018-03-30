@@ -45,7 +45,8 @@ all_planets = settings_pack.planets
 
 ###### Selected Settings ############
 
-selected_planet = None
+selected_planet = settings_pack.earth
+selected_speed = 1
 
 #####################################
 
@@ -68,6 +69,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionGitHub_Page.triggered.connect(self.git_page_open)
         self.ui.actionDocumetation.triggered.connect(self.doc_page_open)
         self.ui.actionSettings_Pack.triggered.connect(self.show_settings)
+        self.ui.actionSpeed.triggered.connect(self.show_speed)
 
         # PLot
     def draw_plot(self):
@@ -101,6 +103,28 @@ class MyWin(QtWidgets.QMainWindow):
 
         for i in all_planets.keys():
             self.setings_subwind.ui.add_item(i)
+
+    def show_speed(self):
+        print('SPEED CLICKED')
+        self.setings_subwind = subwindow()
+        self.setings_subwind.ui = setting_form.Ui_MainWindow()
+        self.setings_subwind.ui.setupUi(self.setings_subwind)
+        self.setings_subwind.ui.label.setText('Select Speed:')
+
+        def set_speed():
+            global selected_speed
+            selected_speed = self.setings_subwind.ui.return_selected()
+            print('selected speed:', selected_speed)
+            self.setings_subwind.close()
+
+        self.setings_subwind.ui.pushButton.clicked.connect(set_speed)
+        self.setings_subwind.show()
+
+        self.setings_subwind.ui.add_item('1')
+        self.setings_subwind.ui.add_item('0,75')
+        self.setings_subwind.ui.add_item('0,5')
+        self.setings_subwind.ui.add_item('0,25')
+
 
     def settings_ok_cliked(self):
         pass
