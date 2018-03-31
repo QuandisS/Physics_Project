@@ -31,9 +31,9 @@ class object:
 
 
 #Планеты#
-earth = planet('Earth', 'test', 'test', 'test')
-moon = planet('Moon', 'test', 'test', 'test')
-mars = planet('Mars', 'test', 'test', 'test')
+earth = planet('Earth', 123, 123, 123)
+moon = planet('Moon', 123, 123, 123)
+mars = planet('Mars', 123, 123, 123)
 
 #Объекты#
 rock = object('test', 'test', 'test', 'test')

@@ -6,7 +6,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from PyQt5.QtGui import QPixmap
-from forms.converted import base_form, credits_form, setting_form
+from forms.converted import base_form, credits_form, setting_form, custom_planet
 from colorama import init
 from colorama import Fore, Back, Style
 import settings_pack
@@ -73,6 +73,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionSettings_Pack.triggered.connect(self.show_settings)
         self.ui.actionSpeed.triggered.connect(self.show_speed)
         self.ui.check_vars.clicked.connect(self.check_vars)
+        self.ui.actionCustom_planet_settings.triggered.connect(self.show_custom_settings)
 
 
         # PLot
@@ -82,6 +83,10 @@ class MyWin(QtWidgets.QMainWindow):
 
         self.ui.speed_label.setText('speed: x' + str(selected_speed))
         self.ui.planet_label.setText(selected_planet.name + '|')
+        print('SELECTED PLANET NAME =', selected_planet.name)
+        print('SELECTED PLANET MASS =', selected_planet.mass)
+        print('SELECTED PLANET RADIUS =', selected_planet.radius)
+        print('SELECTED PLANET AVERAGE DENSITY =', selected_planet.average_density)
 
         print('vars checked!')
 
@@ -127,6 +132,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.setings_subwind.ui = setting_form.Ui_MainWindow()
         self.setings_subwind.ui.setupUi(self.setings_subwind)
         self.setings_subwind.ui.label.setText('Select Speed:')
+        self.setings_subwind.setWindowTitle('Select Speed')
 
         def set_speed():
             global selected_speed
@@ -144,9 +150,36 @@ class MyWin(QtWidgets.QMainWindow):
         self.setings_subwind.ui.add_item('0,5')
         self.setings_subwind.ui.add_item('0,25')
 
+    def show_custom_settings(self):
+        print('Custom set. CLICKED')
 
-    def settings_ok_cliked(self):
+        def cancel_clicked():
+            print('cancel clicked')
+            self.setings_subwind.close()
+            pass
+
+        def ok_clicked():
+            print('ok clicked')
+            cust_plnt = settings_pack.planet
+            cust_plnt.radius = self.setings_subwind.ui.return_vars()[0]
+            cust_plnt.average_density = self.setings_subwind.ui.return_vars()[1]
+            cust_plnt.mass = self.setings_subwind.ui.return_vars()[2]
+            cust_plnt.name = self.setings_subwind.ui.return_vars()[3]
+
+            global selected_planet
+            selected_planet = cust_plnt
+            self.check_vars()
+            self.setings_subwind.close()
+
+        self.setings_subwind = subwindow()
+        self.setings_subwind.ui = custom_planet.Ui_MainWindow()
+        self.setings_subwind.ui.setupUi(self.setings_subwind)
+        self.setings_subwind.show()
+        self.setings_subwind.ui.buttonBox.rejected.connect(cancel_clicked)
+        self.setings_subwind.ui.buttonBox.accepted.connect(ok_clicked)
+
         pass
+
 
     def git_page_open(self):
         webbrowser.open('https://github.com/QuandisS/Physics_Project')
