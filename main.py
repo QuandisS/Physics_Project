@@ -6,7 +6,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from PyQt5.QtGui import QPixmap
-from forms.converted import base_form, credits_form, setting_form, custom_planet
+from forms.converted import base_form, credits_form, setting_form, custom_planet, vars_form
 from colorama import init
 from colorama import Fore, Back, Style
 import settings_pack
@@ -48,6 +48,7 @@ all_planets = settings_pack.planets
 
 selected_planet = settings_pack.earth
 selected_speed = 1
+global_vars = {}
 
 #####################################
 
@@ -77,6 +78,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionCustom_planet_settings.triggered.connect(self.show_custom_settings)
         self.ui.actionExport_log_file.triggered.connect(self.export_log)
         self.ui.actionExport_image_chart.triggered.connect(self.export_img)
+        self.ui.pushButton_6.clicked.connect(self.show_vars)
 
         # PLot
 
@@ -112,6 +114,30 @@ class MyWin(QtWidgets.QMainWindow):
         self.mySubwindow.ui = credits_form.Ui_MainWindow()
         self.mySubwindow.ui.setupUi(self.mySubwindow)
         self.mySubwindow.show()
+
+    def show_vars(self):
+        self.setings_subwind = subwindow()
+        self.setings_subwind.ui = vars_form.Ui_MainWindow()
+        self.setings_subwind.ui.setupUi(self.setings_subwind)
+        self.setings_subwind.show()
+
+        def set_vars():
+            global global_vars
+            global_vars.update({"V" : self.setings_subwind.ui.lineEdit.text()})
+            global_vars.update({"Vx": self.setings_subwind.ui.lineEdit_2.text()})
+            global_vars.update({"Vy": self.setings_subwind.ui.lineEdit_3.text()})
+            global_vars.update({"a": self.setings_subwind.ui.lineEdit_4.text()})
+            global_vars.update({"m": self.setings_subwind.ui.lineEdit_5.text()})
+            global_vars.update({"t": self.setings_subwind.ui.lineEdit_6.text()})
+            global_vars.update({"S": self.setings_subwind.ui.lineEdit_7.text()})
+            global_vars.update({"h": self.setings_subwind.ui.lineEdit_8.text()})
+            global_vars.update({"F": self.setings_subwind.ui.lineEdit_9.text()})
+
+            self.setings_subwind.close()
+            print(global_vars)
+        self.setings_subwind.ui.pushButton.clicked.connect(set_vars)
+
+        pass
 
     def show_settings(self):
         print('SETTING CLICKED')

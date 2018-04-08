@@ -1,0 +1,1 @@
+pyuic5 vars.ui -o vars_form.py
