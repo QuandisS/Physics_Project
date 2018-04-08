@@ -13,6 +13,7 @@ import settings_pack
 import pyqtgraph as pg
 import numpy as np
 import webbrowser
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 
 
 
@@ -74,7 +75,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionSpeed.triggered.connect(self.show_speed)
         self.ui.check_vars.clicked.connect(self.check_vars)
         self.ui.actionCustom_planet_settings.triggered.connect(self.show_custom_settings)
-
+        self.ui.actionExport_log_file.triggered.connect(self.export_log)
+        self.ui.actionExport_image_chart.triggered.connect(self.export_img)
 
         # PLot
 
@@ -96,6 +98,12 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.gridLayout.addWidget(self.ui.plot)
         self.ui.plot.plot(L)
         pass
+
+    def export_log(self):
+        QMessageBox.about(self, "Ouch!", "Will be added soon...")
+
+    def export_img(self):
+        QMessageBox.about(self, "Ouch!", "Will be added soon...")
 
     def show_credits(self):
         print('CREDITS CLIKED')
