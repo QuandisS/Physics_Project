@@ -123,15 +123,15 @@ class MyWin(QtWidgets.QMainWindow):
 
         def set_vars():
             global global_vars
-            global_vars.update({"V" : self.setings_subwind.ui.lineEdit.text()})
-            global_vars.update({"Vx": self.setings_subwind.ui.lineEdit_2.text()})
-            global_vars.update({"Vy": self.setings_subwind.ui.lineEdit_3.text()})
-            global_vars.update({"a": self.setings_subwind.ui.lineEdit_4.text()})
-            global_vars.update({"m": self.setings_subwind.ui.lineEdit_5.text()})
-            global_vars.update({"t": self.setings_subwind.ui.lineEdit_6.text()})
-            global_vars.update({"S": self.setings_subwind.ui.lineEdit_7.text()})
-            global_vars.update({"h": self.setings_subwind.ui.lineEdit_8.text()})
-            global_vars.update({"F": self.setings_subwind.ui.lineEdit_9.text()})
+            global_vars.update({"V" : int(self.setings_subwind.ui.lineEdit.text())})
+            global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
+            global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
+            global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
+            global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
+            global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
+            global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
+            global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
+            global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
 
             self.setings_subwind.close()
             print(global_vars)
