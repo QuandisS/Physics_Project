@@ -103,6 +103,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
         self.ui.gridLayout.addWidget(self.ui.plot)
         self.ui.plot.plot(L)
+        self.solve_the_problem()
         pass
 
     def export_log(self):
@@ -240,6 +241,24 @@ class MyWin(QtWidgets.QMainWindow):
 
     def doc_page_open(self):
         webbrowser.open('https://github.com/QuandisS/Physics_Project/wiki')
+
+#########################
+
+
+    def solve_the_problem(self):
+        global selected_planet
+        global selected_speed
+        global global_vars
+
+        self.log_add('Solving the problem...')
+
+        pass
+
+
+
+#########################
+
+
 
 class subwindow(QtWidgets.QMainWindow):
     def createWindow(self, WindowWidth, WindowHeight):
