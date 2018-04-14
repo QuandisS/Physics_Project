@@ -123,17 +123,19 @@ class MyWin(QtWidgets.QMainWindow):
         self.setings_subwind.show()
 
         def set_vars():
-            global global_vars
-            global_vars.update({"V" : int(self.setings_subwind.ui.lineEdit.text())})
-            global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
-            global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
-            global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
-            global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
-            global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
-            global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
-            global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
-            global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
-
+            try:
+                global global_vars
+                global_vars.update({"V" : int(self.setings_subwind.ui.lineEdit.text())})
+                global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
+                global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
+                global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
+                global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
+                global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
+                global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
+                global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
+                global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
+            except Exception:
+                QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
             self.setings_subwind.close()
             print(global_vars)
         self.setings_subwind.ui.pushButton.clicked.connect(set_vars)
@@ -203,7 +205,11 @@ class MyWin(QtWidgets.QMainWindow):
 
             global selected_planet
             selected_planet = cust_plnt
-            self.check_vars()
+
+            if cust_plnt.radius == 0 and cust_plnt.average_density == 0 and cust_plnt.mass == 0 and cust_plnt.name == 0:
+                QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
+            else:
+                self.check_vars()
             self.setings_subwind.close()
 
         self.setings_subwind = subwindow()

@@ -85,10 +85,16 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Radius:"))
 
     def return_vars(self):
-        vars = []
-        vars.append(int(self.lineEdit.text()))
-        vars.append(int(self.lineEdit_2.text()))
-        vars.append(int(self.lineEdit_3.text()))
-        vars.append(self.lineEdit_4.text())
+        try:
+            vars = []
+            vars.append(int(self.lineEdit.text()))
+            vars.append(int(self.lineEdit_2.text()))
+            vars.append(int(self.lineEdit_3.text()))
+            vars.append(self.lineEdit_4.text())
+            return vars
+        except Exception:
+            print("custom_planet int failure...")
+            return [0, 0, 0, 0]
 
-        return vars
+
+
