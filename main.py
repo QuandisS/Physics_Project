@@ -263,7 +263,6 @@ else:
 instr_test = core_functions.return_the_instructions('V')
 print(instr_test)
 
-
 #________________#
 
 
