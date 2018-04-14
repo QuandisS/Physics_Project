@@ -27,6 +27,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
         self.textEdit = QtWidgets.QTextEdit(self.gridLayoutWidget)
+        self.textEdit.setReadOnly(True)
         self.textEdit.setObjectName("textEdit")
         self.gridLayout.addWidget(self.textEdit, 0, 0, 1, 1)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
@@ -115,7 +116,6 @@ class Ui_MainWindow(object):
 
         MainWindow.setWindowTitle('Physics')
         self.centralwidget.setLayout(self.gridLayout)
-
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

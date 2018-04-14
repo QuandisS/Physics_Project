@@ -50,6 +50,7 @@ all_planets = settings_pack.planets
 selected_planet = settings_pack.earth
 selected_speed = 1
 global_vars = {}
+log_text = ''
 
 #####################################
 
@@ -81,6 +82,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionExport_image_chart.triggered.connect(self.export_img)
         self.ui.pushButton_6.clicked.connect(self.show_vars)
 
+        self.log_add('Hello, this is log!')
+        # PLot
         # PLot
 
     def check_vars(self):
@@ -177,7 +180,7 @@ class MyWin(QtWidgets.QMainWindow):
             print('selected speed:', selected_speed)
             self.setings_subwind.close()
             self.ui.speed_label.setText('speed: x' + str(selected_speed))
-            self.ui.planet_label.setText(selected_planet.name + '|')
+            self.ui.planet_label.setText(str(selected_planet.name) + '|')
 
         self.setings_subwind.ui.pushButton.clicked.connect(set_speed)
         self.setings_subwind.show()
@@ -208,6 +211,7 @@ class MyWin(QtWidgets.QMainWindow):
 
             if cust_plnt.radius == 0 and cust_plnt.average_density == 0 and cust_plnt.mass == 0 and cust_plnt.name == 0:
                 QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
+                selected_planet = settings_pack.earth
             else:
                 self.check_vars()
             self.setings_subwind.close()
@@ -220,6 +224,12 @@ class MyWin(QtWidgets.QMainWindow):
         self.setings_subwind.ui.buttonBox.accepted.connect(ok_clicked)
 
         pass
+
+    def log_add(self, log_msg):
+        global log_text
+        log_text = log_text + str(log_msg) + "\n"
+        self.ui.textEdit.setText(log_text)
+
 
 
     def git_page_open(self):
