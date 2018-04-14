@@ -24,20 +24,8 @@ def return_the_instructions(var):
 
 ######
 
-class math_extension():
-    def __init__(self, used_instr, var):
-        self.used_instr = used_instr
-        self.var = var
-    def show_ext(self):
-        print("Math  extension")
-        print("Used instr:", self.used_instr)
-        print("Var:", self.var)
-
-
 # функция берет массив инструкций и словарь переменных
 # и ищет инстукцию в которой все переменные известны
-
-unknown = math_extension
 
 def check_instr(list_inst, variable):
     # значения из variable
@@ -47,41 +35,41 @@ def check_instr(list_inst, variable):
     keys_var_list = list(dict.keys(variable))
 
     error_inst = []
+    good_inst = None
+
+    number = len(list_inst)
 
     i = 0
     a = 0
     # определяет номер инструкции в которой есть неизвестная перменная
 
-    for a in range(len(list_inst)):
+    for a in range(number):
         for i in range(len(keys_var_list)):
             if keys_var_list[i] in list_inst[a]:
-                if values_var_list[i] == None:
+                if values_var_list[i] == '-':
                     error_inst.append(a)
                     i = 0
                     a += 1
                     break
 
-    return error_inst
-
-# функция принимает номер нормальной инструкции, массив интрукций, название переменной к которой относятся инструкции
-
-
-def doing_inst(error_inst, list_inst, var):
-
-    good_inst = None
-
-    unknown.used_instr = error_inst
-    unknown.var = var
     # определяет номер хорошей инструкции
     a = 0
-    for a in range(len(list_inst)):
+    for a in range(number):
         if a in error_inst:
             a += 1
         else:
             good_inst = a
             break
+
+    return good_inst
+
+
+# функция принимает номер нормальной инструкции, массив интрукций, название переменной к которой относятся инструкции
+
+
+def doing_inst(good_inst, list_inst):
     if good_inst == None:
-        return unknown
+        return 'абракадабра'
     else:
         z = 0
         var = eval(list_inst[good_inst])
