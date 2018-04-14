@@ -158,6 +158,7 @@ class MyWin(QtWidgets.QMainWindow):
             self.setings_subwind.close()
             self.ui.speed_label.setText('speed: x' + str(selected_speed))
             self.ui.planet_label.setText(selected_planet.name + '|')
+            self.log_add('Planet selected!')
         self.setings_subwind.ui.pushButton.clicked.connect(set_planet)
         self.setings_subwind.show()
 
@@ -181,6 +182,7 @@ class MyWin(QtWidgets.QMainWindow):
             self.setings_subwind.close()
             self.ui.speed_label.setText('speed: x' + str(selected_speed))
             self.ui.planet_label.setText(str(selected_planet.name) + '|')
+            self.log_add('Speed selected')
 
         self.setings_subwind.ui.pushButton.clicked.connect(set_speed)
         self.setings_subwind.show()
@@ -214,6 +216,7 @@ class MyWin(QtWidgets.QMainWindow):
                 selected_planet = settings_pack.earth
             else:
                 self.check_vars()
+            self.log_add('Planet selected!')
             self.setings_subwind.close()
 
         self.setings_subwind = subwindow()
