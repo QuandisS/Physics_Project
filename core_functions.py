@@ -69,9 +69,8 @@ def check_instr(list_inst, variable):
 def doing_inst(good_inst, list_inst, var):
     if good_inst == None:
         return 'абракадабра'
-
-    z = 0
-    var = eval(list_inst[good_inst])
-
-    return var
+    else:
+        z = 0
+        var = eval(list_inst[good_inst])
+        return var
 
