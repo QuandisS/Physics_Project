@@ -315,7 +315,7 @@ class MyWin(QtWidgets.QMainWindow):
                 res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar))
 
                 if type(res) != int:
-                    QMessageBox.critical(self, 'Ouch!', "Something went wrong:" + res.args[0], QMessageBox.Ok, QMessageBox.Ok)
+                    QMessageBox.critical(self, 'Ouch!', "Something went wrong:   " + res.args[0], QMessageBox.Ok, QMessageBox.Ok)
                     solving = False
                     break
 
@@ -339,6 +339,7 @@ class MyWin(QtWidgets.QMainWindow):
                 continue
 
         if solved:
+            print('SOLED::::', global_vars)
             self.drawing_plot()
 
     def drawing_plot(self):
