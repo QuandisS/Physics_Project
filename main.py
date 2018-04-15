@@ -311,7 +311,14 @@ class MyWin(QtWidgets.QMainWindow):
         while solving:
             unkn_before = unknown_vars
             for bar in unknown_vars:
+
                 res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar))
+
+                if type(res) != int:
+                    QMessageBox.critical(self, 'Ouch!', "Something went wrong:" + res.args[0], QMessageBox.Ok, QMessageBox.Ok)
+                    solving = False
+                    break
+
                 if res == 'абракадабра':
                     continue
                 else:
@@ -321,10 +328,13 @@ class MyWin(QtWidgets.QMainWindow):
             if len(unknown_vars) == len(unkn_before):
                 if len(unknown_vars) == 0:
                     solving = False
-                    QMessageBox.warning(self, 'Ouch!', "There is not enough data to solve the problem!", QMessageBox.Ok, QMessageBox.Ok)
-                else:
-                    solving = False
                     solved = True
+                    self.drawing_plot()
+
+                else:
+                    QMessageBox.warning(self, 'Ouch!', "There is not enough data to solve the problem!", QMessageBox.Ok,
+                                        QMessageBox.Ok)
+                    solving = False
             else:
                 continue
 

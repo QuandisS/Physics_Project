@@ -94,6 +94,18 @@ def doing_inst(good_inst, list_inst):
         return 'абракадабра'
     else:
         z = 0
-        var = eval(list_inst[good_inst])
-        return var
+        try:
+            var = eval(list_inst[good_inst])
+            return var
+        except Exception as ex:
+
+            #if hasattr(ex, 'message'):
+            #    return ex.message
+            #else:
+
+                return ex
+
+
+
+
 
