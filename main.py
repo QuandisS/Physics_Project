@@ -316,11 +316,11 @@ class MyWin(QtWidgets.QMainWindow):
 
                 if type(res) != int:
                     if type(res) == str and res != 'абракадабра':
-                        QMessageBox.critical(self, 'Ouch!', "Something went wrong:   " + res, QMessageBox.Ok,
+                        QMessageBox.critical(self, 'Ouch!', "Something went wrong in instruction:   " + res, QMessageBox.Ok,
                                              QMessageBox.Ok)
                         break
                     elif res != 'абракадабра':
-                        QMessageBox.critical(self, 'Ouch!', "Something went wrong:   " + res.args[0], QMessageBox.Ok, QMessageBox.Ok)
+                        QMessageBox.critical(self, 'Ouch!', "Something went wrong in instruction:   " + res.args[0], QMessageBox.Ok, QMessageBox.Ok)
                         solving = False
                         break
 
