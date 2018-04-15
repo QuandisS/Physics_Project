@@ -6,7 +6,6 @@
 # Настройка и вывод в лог #
 
 version = 'Pre-Alpha Build'
-
 def response():
     return True
 
@@ -22,6 +21,29 @@ def return_the_instructions(var):
         if var == 'a':
             return ['test', 'test']
 
+        if var == 'g':
+            return ['G*']
+
+        if var == 'Vx':
+            return ['test', 'test']
+
+        if var == 'Vy':
+            return ['test', 'test']
+
+        if var == 'm':
+            return ['test', 'test']
+
+        if var == 't':
+            return ['test', 'test']
+
+        if var == 'S':
+            return ['test', 'test']
+
+        if var == 'h':
+            return ['test', 'test']
+
+        if var == 'F':
+            return ['test', 'test']
 ######
 
 # функция берет массив инструкций и словарь переменных

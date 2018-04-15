@@ -129,15 +129,51 @@ class MyWin(QtWidgets.QMainWindow):
         def set_vars():
             try:
                 global global_vars
-                global_vars.update({"V" : int(self.setings_subwind.ui.lineEdit.text())})
-                global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
-                global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
-                global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
-                global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
-                global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
-                global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
-                global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
-                global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
+                if self.setings_subwind.ui.lineEdit.text() == '-':
+                    global_vars.update({"V" : '-'})
+                else:
+                    global_vars.update({"V": int(self.setings_subwind.ui.lineEdit.text())})
+
+                if self.setings_subwind.ui.lineEdit_2.text() == '-':
+                    global_vars.update({"Vx" : '-'})
+                else:
+                    global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
+
+                if self.setings_subwind.ui.lineEdit_3.text() == '-':
+                    global_vars.update({"Vy" : '-'})
+                else:
+                    global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
+
+                if self.setings_subwind.ui.lineEdit_4.text() == '-':
+                    global_vars.update({"a" : '-'})
+                else:
+                    global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
+
+                if self.setings_subwind.ui.lineEdit_5.text() == '-':
+                    global_vars.update({"m" : '-'})
+                else:
+                    global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
+
+                if self.setings_subwind.ui.lineEdit_6.text() == '-':
+                    global_vars.update({"t" : '-'})
+                else:
+                    global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
+
+                if self.setings_subwind.ui.lineEdit_7.text() == '-':
+                    global_vars.update({"S" : '-'})
+                else:
+                    global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
+
+                if self.setings_subwind.ui.lineEdit_8.text() == '-':
+                    global_vars.update({"h" : '-'})
+                else:
+                    global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
+
+                if self.setings_subwind.ui.lineEdit_9.text() == '-':
+                    global_vars.update({"F" : '-'})
+                else:
+                    global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
+
             except Exception:
                 QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
             self.setings_subwind.close()
@@ -252,10 +288,52 @@ class MyWin(QtWidgets.QMainWindow):
 
         self.log_add('Solving the problem...')
 
+        global_vars.update({'M': selected_planet.mass})
+        global_vars.update({'r': selected_planet.radius})
+        global_vars.update({'ro': selected_planet.average_density})
+
+        print(global_vars)
+
+        solved = False
+        solving = True
+        unknown_vars = []
+
+        for foo in global_vars.keys():
+            if global_vars[foo] == '-':
+                unknown_vars.append(foo)
+            else:
+                continue
+
+        if len(unknown_vars) == 0:
+            solving = False
+            solved = True
+
+        while solving:
+            unkn_before = unknown_vars
+            for bar in unknown_vars:
+                res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar))
+                if res == 'абракадабра':
+                    continue
+                else:
+                    global_vars[bar] = res
+                    unknown_vars.pop(bar)
+
+            if len(unknown_vars) == len(unkn_before):
+                if len(unknown_vars) == 0:
+                    solving = False
+                    QMessageBox.warning(self, 'Ouch!', "There is not enough data to solve the problem!", QMessageBox.Ok, QMessageBox.Ok)
+                else:
+                    solving = False
+                    solved = True
+            else:
+                continue
+
+        if solved:
+            self.drawing_plot()
+
+    def drawing_plot(self):
+        QMessageBox.information(self, "Plot is drawing...", "Plot is drawing!", QMessageBox.Ok, QMessageBox.Ok)
         pass
-
-
-
 #########################
 
 
