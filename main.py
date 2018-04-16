@@ -83,6 +83,17 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.pushButton_6.clicked.connect(self.show_vars)
 
         self.log_add('Hello, this is log!')
+
+        self.setWindowIcon(QtGui.QIcon(QtGui.QPixmap("pics/main_logo.png")))
+        self.ui.actionExport_image_chart.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_export-outline_216189.png"))))
+        self.ui.actionExport_log_file.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_export-outline_216189.png"))))
+        self.ui.actionCustom_planet_settings.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_gnome-globe_22280.png"))))
+        self.ui.actionSettings_Pack.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_gnome-globe_22280.png"))))
+        self.ui.actionSpeed.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_performance-clock-speed_353431.png"))))
+        self.ui.actionCredits.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_file_documents-07_854130.png"))))
+        self.ui.actionDocumentation.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_Product-documentation_85540.png"))))
+        self.ui.actionGitHub_Page_2.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_mark-github_298822.png"))))
+
         # PLot
         # PLot
 
