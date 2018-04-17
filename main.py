@@ -140,48 +140,48 @@ class MyWin(QtWidgets.QMainWindow):
         def set_vars():
             try:
                 global global_vars
-                if self.setings_subwind.ui.lineEdit.text() == '-':
-                    global_vars.update({"V" : '-'})
+                if self.setings_subwind.ui.lineEdit.text() == core_functions.sign_var:
+                    global_vars.update({"V" : core_functions.sign_var})
                 else:
                     global_vars.update({"V": int(self.setings_subwind.ui.lineEdit.text())})
 
-                if self.setings_subwind.ui.lineEdit_2.text() == '-':
-                    global_vars.update({"Vx" : '-'})
+                if self.setings_subwind.ui.lineEdit_2.text() == core_functions.sign_var:
+                    global_vars.update({"Vx" : core_functions.sign_var})
                 else:
                     global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
 
-                if self.setings_subwind.ui.lineEdit_3.text() == '-':
-                    global_vars.update({"Vy" : '-'})
+                if self.setings_subwind.ui.lineEdit_3.text() == core_functions.sign_var:
+                    global_vars.update({"Vy" : core_functions.sign_var})
                 else:
                     global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
 
-                if self.setings_subwind.ui.lineEdit_4.text() == '-':
-                    global_vars.update({"a" : '-'})
+                if self.setings_subwind.ui.lineEdit_4.text() == core_functions.sign_var:
+                    global_vars.update({"a" : core_functions.sign_var})
                 else:
                     global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
 
-                if self.setings_subwind.ui.lineEdit_5.text() == '-':
-                    global_vars.update({"m" : '-'})
+                if self.setings_subwind.ui.lineEdit_5.text() == core_functions.sign_var:
+                    global_vars.update({"m" : core_functions.sign_var})
                 else:
                     global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
 
-                if self.setings_subwind.ui.lineEdit_6.text() == '-':
-                    global_vars.update({"t" : '-'})
+                if self.setings_subwind.ui.lineEdit_6.text() == core_functions.sign_var:
+                    global_vars.update({"t" : core_functions.sign_var})
                 else:
                     global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
 
-                if self.setings_subwind.ui.lineEdit_7.text() == '-':
-                    global_vars.update({"S" : '-'})
+                if self.setings_subwind.ui.lineEdit_7.text() == core_functions.sign_var:
+                    global_vars.update({"S" : core_functions.sign_var})
                 else:
                     global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
 
-                if self.setings_subwind.ui.lineEdit_8.text() == '-':
-                    global_vars.update({"h" : '-'})
+                if self.setings_subwind.ui.lineEdit_8.text() == core_functions.sign_var:
+                    global_vars.update({"h" : core_functions.sign_var})
                 else:
                     global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
 
-                if self.setings_subwind.ui.lineEdit_9.text() == '-':
-                    global_vars.update({"F" : '-'})
+                if self.setings_subwind.ui.lineEdit_9.text() == core_functions.sign_var:
+                    global_vars.update({"F" : core_functions.sign_var})
                 else:
                     global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
 

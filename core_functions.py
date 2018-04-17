@@ -2,6 +2,17 @@
 # Это файл, содержащий функции с формулами #
 ############################################
 
+import cmath
+
+
+############################################
+# Переменнная отвечающая за знак по которому осуществляется поиск неизвестных
+############################################
+
+sign_var = '-'
+
+############################################
+############################################
 
 # Настройка и вывод в лог #
 
@@ -48,7 +59,6 @@ def return_the_instructions(var):
 
 # функция берет массив инструкций и словарь переменных
 # и ищет инстукцию в которой все переменные известны
-
 def check_instr(list_inst, variable):
     # значения из variable
     values_var_list = list(dict.values(variable))
@@ -56,19 +66,28 @@ def check_instr(list_inst, variable):
     # ключи из variable
     keys_var_list = list(dict.keys(variable))
 
+    s_lenght_inst = []
+
     error_inst = []
     good_inst = None
 
-    number = len(list_inst)
-
     i = 0
     a = 0
+
+    # разделение инструкций для исключения неправильной работы ф-ции
+    # раньше не было отличия между  v0 и v0_x
+    for i in range(len(list_inst)):
+        s_lenght_inst.append(list_inst[i].split())
+        i += 1
+
+    number = len(s_lenght_inst)
+
     # определяет номер инструкции в которой есть неизвестная перменная
 
     for a in range(number):
         for i in range(len(keys_var_list)):
-            if keys_var_list[i] in list_inst[a]:
-                if values_var_list[i] == '-':
+            if keys_var_list[i] in s_lenght_inst[a]:
+                if values_var_list[i] == sign_var:
                     error_inst.append(a)
                     i = 0
                     a += 1
