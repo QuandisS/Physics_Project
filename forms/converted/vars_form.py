@@ -121,8 +121,8 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Длина полета по X"))
         self.label_8.setText(_translate("MainWindow", "Макс. высота"))
         self.label_9.setText(_translate("MainWindow", "Сила броска"))
-        self.label_10.setText(_translate("MainWindow", "///"))
-        self.label_11.setText(_translate("MainWindow", "///"))
+        self.label_10.setText(_translate("MainWindow", "Начальная координата X"))
+        self.label_11.setText(_translate("MainWindow", "Начальная координата Y"))
         self.label_12.setText(_translate("MainWindow", "///"))
         self.pushButton.setText(_translate("MainWindow", "Ok"))
 

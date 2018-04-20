@@ -186,6 +186,16 @@ class MyWin(QtWidgets.QMainWindow):
                 else:
                     global_vars.update({"F": int(self.setings_subwind.ui.lineEdit_9.text())})
 
+                if self.setings_subwind.ui.lineEdit_10.text() == core_functions.sign_var:
+                    global_vars.update({"y0": core_functions.sign_var})
+                else:
+                    global_vars.update({"y0": int(self.setings_subwind.ui.lineEdit_10.text())})
+
+                if self.setings_subwind.ui.lineEdit_11.text() == core_functions.sign_var:
+                    global_vars.update({"x0": core_functions.sign_var})
+                else:
+                    global_vars.update({"x0": int(self.setings_subwind.ui.lineEdit_11.text())})
+
             except Exception:
                 QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
             self.setings_subwind.close()
