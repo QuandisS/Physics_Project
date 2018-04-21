@@ -335,6 +335,7 @@ class MyWin(QtWidgets.QMainWindow):
         global_vars.update({'ro': selected_planet.average_density})
         global_vars.update({'sin_a': "-"})
         global_vars.update({'cos_a': "-"})
+        global_vars.update({'G': constants.G})
 
         print(global_vars)
 
