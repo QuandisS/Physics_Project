@@ -211,6 +211,11 @@ class MyWin(QtWidgets.QMainWindow):
                 else:
                     global_vars.update({"y": int(self.setings_subwind.ui.lineEdit_14.text())})
 
+                if self.setings_subwind.ui.lineEdit_15.text() == core_functions.sign_var:
+                    global_vars.update({"vy": core_functions.sign_var})
+                else:
+                    global_vars.update({"vy": int(self.setings_subwind.ui.lineEdit_15.text())})
+
             except Exception:
                 QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
             self.setings_subwind.close()

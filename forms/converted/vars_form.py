@@ -94,7 +94,7 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(11, QtWidgets.QFormLayout.FieldRole, self.lineEdit_12)
         self.pushButton = QtWidgets.QPushButton(self.formLayoutWidget)
         self.pushButton.setObjectName("pushButton")
-        self.formLayout.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.pushButton)
+        self.formLayout.setWidget(15, QtWidgets.QFormLayout.FieldRole, self.pushButton)
 
         self.label_13 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_13.setObjectName("label_13")
@@ -109,6 +109,13 @@ class Ui_MainWindow(object):
         self.lineEdit_14.setObjectName("lineEdit_14")
         self.formLayout.setWidget(13, QtWidgets.QFormLayout.FieldRole, self.lineEdit_14)
         self.formLayout.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.label_14)
+
+        self.label_15 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_15.setObjectName("label_15")
+        self.lineEdit_15 = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lineEdit_15.setObjectName("lineEdit_15")
+        self.formLayout.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.lineEdit_15)
+        self.formLayout.setWidget(14, QtWidgets.QFormLayout.LabelRole, self.label_15)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -142,6 +149,7 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "Момент времени t"))
         self.label_13.setText(_translate("MainWindow", "X в момент времени t"))
         self.label_14.setText(_translate("MainWindow", "Y в момент времени t"))
+        self.label_15.setText(_translate("MainWindow", "Vy в момент времени t"))
 
         self.pushButton.setText(_translate("MainWindow", "Ok"))
 
