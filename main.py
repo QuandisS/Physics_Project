@@ -157,9 +157,9 @@ class MyWin(QtWidgets.QMainWindow):
                     global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
 
                 if self.setings_subwind.ui.lineEdit_4.text() == core_functions.sign_var:
-                    global_vars.update({"a" : core_functions.sign_var})
+                    global_vars.update({"alpha" : core_functions.sign_var})
                 else:
-                    global_vars.update({"a": int(self.setings_subwind.ui.lineEdit_4.text())})
+                    global_vars.update({"alpha": int(self.setings_subwind.ui.lineEdit_4.text())})
 
                 if self.setings_subwind.ui.lineEdit_5.text() == core_functions.sign_var:
                     global_vars.update({"m" : core_functions.sign_var})
@@ -167,14 +167,14 @@ class MyWin(QtWidgets.QMainWindow):
                     global_vars.update({"m": int(self.setings_subwind.ui.lineEdit_5.text())})
 
                 if self.setings_subwind.ui.lineEdit_6.text() == core_functions.sign_var:
-                    global_vars.update({"t" : core_functions.sign_var})
+                    global_vars.update({"t_all" : core_functions.sign_var})
                 else:
-                    global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_6.text())})
+                    global_vars.update({"t_all": int(self.setings_subwind.ui.lineEdit_6.text())})
 
                 if self.setings_subwind.ui.lineEdit_7.text() == core_functions.sign_var:
-                    global_vars.update({"S" : core_functions.sign_var})
+                    global_vars.update({"L" : core_functions.sign_var})
                 else:
-                    global_vars.update({"S": int(self.setings_subwind.ui.lineEdit_7.text())})
+                    global_vars.update({"L": int(self.setings_subwind.ui.lineEdit_7.text())})
 
                 if self.setings_subwind.ui.lineEdit_8.text() == core_functions.sign_var:
                     global_vars.update({"h" : core_functions.sign_var})
@@ -195,6 +195,21 @@ class MyWin(QtWidgets.QMainWindow):
                     global_vars.update({"x0": core_functions.sign_var})
                 else:
                     global_vars.update({"x0": int(self.setings_subwind.ui.lineEdit_11.text())})
+
+                if self.setings_subwind.ui.lineEdit_12.text() == core_functions.sign_var:
+                    global_vars.update({"t": core_functions.sign_var})
+                else:
+                    global_vars.update({"t": int(self.setings_subwind.ui.lineEdit_12.text())})
+
+                if self.setings_subwind.ui.lineEdit_13.text() == core_functions.sign_var:
+                    global_vars.update({"x": core_functions.sign_var})
+                else:
+                    global_vars.update({"x": int(self.setings_subwind.ui.lineEdit_13.text())})
+
+                if self.setings_subwind.ui.lineEdit_14.text() == core_functions.sign_var:
+                    global_vars.update({"y": core_functions.sign_var})
+                else:
+                    global_vars.update({"y": int(self.setings_subwind.ui.lineEdit_14.text())})
 
             except Exception:
                 QMessageBox.warning(self, 'Ouch!', "Please enter the data!", QMessageBox.Ok, QMessageBox.Ok)
@@ -313,6 +328,8 @@ class MyWin(QtWidgets.QMainWindow):
         global_vars.update({'M': selected_planet.mass})
         global_vars.update({'r': selected_planet.radius})
         global_vars.update({'ro': selected_planet.average_density})
+        global_vars.update({'sin_a': "-"})
+        global_vars.update({'cos_a': "-"})
 
         print(global_vars)
 

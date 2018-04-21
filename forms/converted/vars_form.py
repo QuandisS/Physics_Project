@@ -94,8 +94,24 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(11, QtWidgets.QFormLayout.FieldRole, self.lineEdit_12)
         self.pushButton = QtWidgets.QPushButton(self.formLayoutWidget)
         self.pushButton.setObjectName("pushButton")
-        self.formLayout.setWidget(12, QtWidgets.QFormLayout.FieldRole, self.pushButton)
+        self.formLayout.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.pushButton)
+
+        self.label_13 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_13.setObjectName("label_13")
+        self.lineEdit_13 = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lineEdit_13.setObjectName("lineEdit_13")
+        self.formLayout.setWidget(12, QtWidgets.QFormLayout.FieldRole, self.lineEdit_13)
+        self.formLayout.setWidget(12, QtWidgets.QFormLayout.LabelRole, self.label_13)
+
+        self.label_14 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_14.setObjectName("label_14")
+        self.lineEdit_14 = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.lineEdit_14.setObjectName("lineEdit_14")
+        self.formLayout.setWidget(13, QtWidgets.QFormLayout.FieldRole, self.lineEdit_14)
+        self.formLayout.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.label_14)
+
         MainWindow.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 390, 21))
         self.menubar.setObjectName("menubar")
@@ -123,6 +139,9 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "Сила броска"))
         self.label_10.setText(_translate("MainWindow", "Начальная координата X"))
         self.label_11.setText(_translate("MainWindow", "Начальная координата Y"))
-        self.label_12.setText(_translate("MainWindow", "///"))
+        self.label_12.setText(_translate("MainWindow", "Момент времени t"))
+        self.label_13.setText(_translate("MainWindow", "X в момент времени t"))
+        self.label_14.setText(_translate("MainWindow", "Y в момент времени t"))
+
         self.pushButton.setText(_translate("MainWindow", "Ok"))
 
