@@ -142,19 +142,19 @@ class MyWin(QtWidgets.QMainWindow):
             try:
                 global global_vars
                 if self.setings_subwind.ui.lineEdit.text() == core_functions.sign_var:
-                    global_vars.update({"V" : core_functions.sign_var})
+                    global_vars.update({"v0" : core_functions.sign_var})
                 else:
-                    global_vars.update({"V": int(self.setings_subwind.ui.lineEdit.text())})
+                    global_vars.update({"v0": int(self.setings_subwind.ui.lineEdit.text())})
 
                 if self.setings_subwind.ui.lineEdit_2.text() == core_functions.sign_var:
-                    global_vars.update({"Vx" : core_functions.sign_var})
+                    global_vars.update({"v0x" : core_functions.sign_var})
                 else:
-                    global_vars.update({"Vx": int(self.setings_subwind.ui.lineEdit_2.text())})
+                    global_vars.update({"v0x": int(self.setings_subwind.ui.lineEdit_2.text())})
 
                 if self.setings_subwind.ui.lineEdit_3.text() == core_functions.sign_var:
-                    global_vars.update({"Vy" : core_functions.sign_var})
+                    global_vars.update({"v0y" : core_functions.sign_var})
                 else:
-                    global_vars.update({"Vy": int(self.setings_subwind.ui.lineEdit_3.text())})
+                    global_vars.update({"v0y": int(self.setings_subwind.ui.lineEdit_3.text())})
 
                 if self.setings_subwind.ui.lineEdit_4.text() == core_functions.sign_var:
                     global_vars.update({"alpha" : core_functions.sign_var})
@@ -177,9 +177,9 @@ class MyWin(QtWidgets.QMainWindow):
                     global_vars.update({"L": int(self.setings_subwind.ui.lineEdit_7.text())})
 
                 if self.setings_subwind.ui.lineEdit_8.text() == core_functions.sign_var:
-                    global_vars.update({"h" : core_functions.sign_var})
+                    global_vars.update({"h_max" : core_functions.sign_var})
                 else:
-                    global_vars.update({"h": int(self.setings_subwind.ui.lineEdit_8.text())})
+                    global_vars.update({"h_max": int(self.setings_subwind.ui.lineEdit_8.text())})
 
                 if self.setings_subwind.ui.lineEdit_9.text() == core_functions.sign_var:
                     global_vars.update({"F" : core_functions.sign_var})
