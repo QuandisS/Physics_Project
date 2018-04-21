@@ -133,7 +133,29 @@ def check_instr(list_inst, variable):
 # функция принимает номер нормальной инструкции, массив интрукций, название переменной к которой относятся инструкции
 
 
-def doing_inst(good_inst, list_inst):
+def doing_inst(good_inst, list_inst, global_vars):
+
+    v0 = global_vars["v0"]
+    alpha = global_vars["alpha"]
+    sin_a = global_vars["sin_a"]
+    cos_a = global_vars["cos_a"]
+    v0x = global_vars["v0x"]
+    v0y = global_vars["v0y"]
+    vy = global_vars["vy"]
+    t_all = global_vars["t_all"]
+    L = global_vars["L"]
+    h_max = global_vars["h_max"]
+    x = global_vars["x"]
+    x0 = global_vars["x0"]
+    y = global_vars["y"]
+    y0 = global_vars["y0"]
+    g = global_vars["g"]
+    t = global_vars["t"]
+    M = global_vars["M"]
+    G = global_vars["G"]
+    r = global_vars["r"]
+
+
     if good_inst == None:
         return 'абракадабра'
     else:
