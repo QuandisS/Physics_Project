@@ -16,6 +16,7 @@ import pyqtgraph as pg
 import numpy as np
 import webbrowser
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
+import math
 
 
 
@@ -336,6 +337,15 @@ class MyWin(QtWidgets.QMainWindow):
         global_vars.update({'sin_a': "-"})
         global_vars.update({'cos_a': "-"})
         global_vars.update({'G': constants.G})
+
+        if global_vars['alpha'] != '-':
+
+            alpha = global_vars['alpha']
+            alpha = math.radians(alpha)
+            global_vars['alpha'] = alpha
+
+        else:
+            pass
 
         print(global_vars)
 
