@@ -337,6 +337,19 @@ class MyWin(QtWidgets.QMainWindow):
         global_vars.update({'sin_a': "-"})
         global_vars.update({'cos_a': "-"})
         global_vars.update({'G': constants.G})
+        global_vars.update({'g': '-'})
+
+
+        print(global_vars)
+
+        if global_vars['t'] == 0:
+            global_vars.pop('t')
+        if global_vars['x'] == 0:
+            global_vars.pop('x')
+        if global_vars['y'] == 0:
+            global_vars.pop('y')
+        if global_vars['vy'] == 0:
+            global_vars.pop('vy')
 
         if global_vars['alpha'] != '-':
 
@@ -367,7 +380,7 @@ class MyWin(QtWidgets.QMainWindow):
             unkn_before = unknown_vars
             for bar in unknown_vars:
 
-                res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar))
+                res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar), global_vars)
 
                 if type(res) != int:
                     if type(res) == str and res != 'абракадабра':

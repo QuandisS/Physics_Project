@@ -112,12 +112,29 @@ def check_instr(list_inst, variable):
     for a in range(number):
         for i in range(len(keys_var_list)):
             if keys_var_list[i] in s_lenght_inst[a]:
-                if values_var_list[i] == sign_var:
+                try:
+                    if values_var_list[i] == sign_var:
+                        error_inst.append(a)
+                        i = 0
+                        a += 1
+                        break
+                except Exception:
                     error_inst.append(a)
                     i = 0
                     a += 1
                     break
-
+            elif keys_var_list[i] == 't' or 'vy' or 'x' or 'y':
+                try:
+                    if type(variable[keys_var_list[i]]) != int:
+                        error_inst.append(a)
+                        i = 0
+                        a += 1
+                        break
+                except Exception:
+                    error_inst.append(a)
+                    i = 0
+                    a += 1
+                    break
     # определяет номер хорошей инструкции
     a = 0
     for a in range(number):
@@ -141,16 +158,28 @@ def doing_inst(good_inst, list_inst, global_vars):
     cos_a = global_vars["cos_a"]
     v0x = global_vars["v0x"]
     v0y = global_vars["v0y"]
-    vy = global_vars["vy"]
+    try:
+        vy = global_vars["vy"]
+    except Exception:
+        pass
     t_all = global_vars["t_all"]
     L = global_vars["L"]
     h_max = global_vars["h_max"]
-    x = global_vars["x"]
+    try:
+        x = global_vars["x"]
+    except Exception:
+        pass
     x0 = global_vars["x0"]
-    y = global_vars["y"]
+    try:
+        y = global_vars["y"]
+    except Exception:
+        pass
     y0 = global_vars["y0"]
     g = global_vars["g"]
-    t = global_vars["t"]
+    try:
+        t = global_vars["t"]
+    except Exception:
+        pass
     M = global_vars["M"]
     G = global_vars["G"]
     r = global_vars["r"]
