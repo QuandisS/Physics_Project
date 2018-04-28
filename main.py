@@ -82,6 +82,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionCustom_planet_settings.triggered.connect(self.show_custom_settings)
         self.ui.actionExport_log_file.triggered.connect(self.export_log)
         self.ui.actionExport_image_chart.triggered.connect(self.export_img)
+        self.ui.actionClear_Log.triggered.connect(self.clear_log)
         self.ui.pushButton_6.clicked.connect(self.show_vars)
 
         self.log_add('Hello, this is log!')
@@ -95,6 +96,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionCredits.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_file_documents-07_854130.png"))))
         self.ui.actionDocumentation.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_Product-documentation_85540.png"))))
         self.ui.actionGitHub_Page_2.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_mark-github_298822.png"))))
+        self.ui.actionClear_Log.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_edit-clear_118917.png"))))
 
         # PLot
         # PLot
@@ -124,6 +126,13 @@ class MyWin(QtWidgets.QMainWindow):
 
     def export_img(self):
         QMessageBox.about(self, "Ouch!", "Will be added soon...")
+
+    def clear_log(self):
+        global log_text
+        log_text = ''
+        self.log_add('')
+        QMessageBox.about(self, "Done!", "Log cleared...")
+        pass
 
     def show_credits(self):
         print('CREDITS CLIKED')

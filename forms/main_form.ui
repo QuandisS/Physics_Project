@@ -121,6 +121,7 @@
     </property>
     <addaction name="actionExport_image_chart"/>
     <addaction name="actionExport_log_file"/>
+    <addaction name="actionClear_Log"/>
    </widget>
    <widget class="QMenu" name="menuCredits">
     <property name="title">
@@ -192,6 +193,11 @@
   <action name="actionGitHub_Page_2">
    <property name="text">
     <string>GitHub Page</string>
+   </property>
+  </action>
+  <action name="actionClear_Log">
+   <property name="text">
+    <string>Clear Log</string>
    </property>
   </action>
  </widget>

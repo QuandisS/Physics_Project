@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+
 version = "v1"
 
 class Ui_MainWindow(object):
@@ -98,12 +99,15 @@ class Ui_MainWindow(object):
         self.actionDocumentation.setObjectName("actionDocumentation")
         self.actionGitHub_Page_2 = QtWidgets.QAction(MainWindow)
         self.actionGitHub_Page_2.setObjectName("actionGitHub_Page_2")
+        self.actionClear_Log = QtWidgets.QAction(MainWindow)
+        self.actionClear_Log.setObjectName("actionClear_Log")
         self.menuSetting.addAction(self.actionSettings_Pack)
         self.menuSetting.addAction(self.actionSpeed)
         self.menuSetting.addAction(self.actionCustom_planet_settings)
         self.menuSetting.addSeparator()
         self.menuFile.addAction(self.actionExport_image_chart)
         self.menuFile.addAction(self.actionExport_log_file)
+        self.menuFile.addAction(self.actionClear_Log)
         self.menuCredits.addAction(self.actionCredits)
         self.menuCredits.addAction(self.actionDocumentation)
         self.menuCredits.addAction(self.actionGitHub_Page_2)
@@ -111,11 +115,11 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuSetting.menuAction())
         self.menubar.addAction(self.menuCredits.menuAction())
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
         MainWindow.setWindowTitle('Physics')
         self.centralwidget.setLayout(self.gridLayout)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -138,4 +142,5 @@ class Ui_MainWindow(object):
         self.actionjj.setText(_translate("MainWindow", "jj"))
         self.actionDocumentation.setText(_translate("MainWindow", "Documentation"))
         self.actionGitHub_Page_2.setText(_translate("MainWindow", "GitHub Page"))
+        self.actionClear_Log.setText(_translate("MainWindow", "Clear Log"))
 
