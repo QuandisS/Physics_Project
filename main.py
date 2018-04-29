@@ -394,7 +394,7 @@ class MyWin(QtWidgets.QMainWindow):
             solved = True
 
         while solving:
-            unkn_before = unknown_vars
+            unkn_before = list(unknown_vars)
             for bar in unknown_vars:
 
                 res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar), global_vars)
@@ -424,6 +424,7 @@ class MyWin(QtWidgets.QMainWindow):
                     self.drawing_plot()
 
                 else:
+                    print('Теперь найденные:', global_vars)
                     QMessageBox.warning(self, 'Ouch!', "There is not enough data to solve the problem!", QMessageBox.Ok,
                                         QMessageBox.Ok)
                     solving = False
