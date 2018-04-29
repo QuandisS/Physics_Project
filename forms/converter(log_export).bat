@@ -1,0 +1,1 @@
+pyuic5 log_export.ui -o log_export.py

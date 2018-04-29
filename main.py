@@ -8,7 +8,7 @@ import sys
 from PyQt5 import QtCore
 from PyQt5.QtCore import QThread
 from PyQt5.QtGui import QPixmap
-from forms.converted import base_form, credits_form, setting_form, custom_planet, vars_form
+from forms.converted import base_form, credits_form, setting_form, custom_planet, vars_form, log_export
 from colorama import init
 from colorama import Fore, Back, Style
 import settings_pack
@@ -122,7 +122,29 @@ class MyWin(QtWidgets.QMainWindow):
         pass
 
     def export_log(self):
-        QMessageBox.about(self, "Ouch!", "Will be added soon...")
+        self.setings_subwind = subwindow()
+        self.setings_subwind.ui = log_export.Ui_MainWindow()
+        self.setings_subwind.ui.setupUi(self.setings_subwind)
+        self.setings_subwind.show()
+
+        def cancel_clicked():
+            print('cancel clicked')
+            self.setings_subwind.close()
+            pass
+
+        def ok_cliced():
+            print('ok clicked')
+            description  = self.setings_subwind.ui.textEdit.toPlainText()
+            name = self.setings_subwind.ui.lineEdit.text()
+            f = open('data/logs/' + name + '.log', 'w')
+            f.write("""###################################TTTH Log##################################""")
+            f.write('\n'* 5)
+            f.write(description)
+            f.close()
+            pass
+
+        self.setings_subwind.ui.buttonBox.rejected.connect(cancel_clicked)
+        self.setings_subwind.ui.buttonBox.accepted.connect(ok_cliced)
 
     def export_img(self):
         QMessageBox.about(self, "Ouch!", "Will be added soon...")
@@ -253,8 +275,6 @@ class MyWin(QtWidgets.QMainWindow):
 
         for i in all_planets.keys():
             self.setings_subwind.ui.add_item(i)
-
-
 
     def show_speed(self):
         print('SPEED CLICKED')
