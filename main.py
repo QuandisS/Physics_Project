@@ -399,7 +399,7 @@ class MyWin(QtWidgets.QMainWindow):
 
                 res = core_functions.doing_inst(core_functions.check_instr(core_functions.return_the_instructions(bar), global_vars), core_functions.return_the_instructions(bar), global_vars)
 
-                if type(res) != int:
+                if type(res) != int and type(res) != float and type(res) != complex:
                     if type(res) == str and res != 'абракадабра':
                         QMessageBox.critical(self, 'Ouch!', "Something went wrong in instruction:   " + res, QMessageBox.Ok,
                                              QMessageBox.Ok)
