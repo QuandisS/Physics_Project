@@ -105,6 +105,8 @@ def check_instr(list_inst, variable):
         s_lenght_inst.append(list_inst[i].split())
         i += 1
 
+    i = 0
+
     number = len(s_lenght_inst)
 
     # определяет номер инструкции в которой есть неизвестная перменная
@@ -123,18 +125,18 @@ def check_instr(list_inst, variable):
                     i = 0
                     a += 1
                     break
-            elif keys_var_list[i] == 't' or 'vy' or 'x' or 'y':
-                try:
-                    if type(variable[keys_var_list[i]]) != int:
-                        error_inst.append(a)
-                        i = 0
-                        a += 1
-                        break
-                except Exception:
-                    error_inst.append(a)
-                    i = 0
-                    a += 1
-                    break
+            # elif keys_var_list[i] == 't' or keys_var_list[i] == 'vy' or keys_var_list[i] == 'x' or keys_var_list[i] == 'y':
+            #     try:
+            #         if type(variable[keys_var_list[i]]) != int:
+            #             error_inst.append(a)
+            #             i = 0
+            #             a += 1
+            #             break
+            #     except Exception:
+            #         error_inst.append(a)
+            #         i = 0
+            #         a += 1
+            #         break
     # определяет номер хорошей инструкции
     a = 0
     for a in range(number):

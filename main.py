@@ -351,14 +351,7 @@ class MyWin(QtWidgets.QMainWindow):
 
         print(global_vars)
 
-        if global_vars['t'] == 0:
-            global_vars.pop('t')
-        if global_vars['x'] == 0:
-            global_vars.pop('x')
-        if global_vars['y'] == 0:
-            global_vars.pop('y')
-        if global_vars['vy'] == 0:
-            global_vars.pop('vy')
+
 
         if global_vars['alpha'] != '-':
 
@@ -378,8 +371,23 @@ class MyWin(QtWidgets.QMainWindow):
         for foo in global_vars.keys():
             if global_vars[foo] == '-':
                 unknown_vars.append(foo)
+            if global_vars[foo] == '0':
+                pass
             else:
                 continue
+
+        if global_vars['t'] == 0:
+            global_vars['t'] = core_functions.sign_var
+        if global_vars['x'] == 0:
+            global_vars['x'] = core_functions.sign_var
+        if global_vars['y'] == 0:
+            global_vars['y'] = core_functions.sign_var
+        if global_vars['vy'] == 0:
+            global_vars['vy'] = core_functions.sign_var
+        if global_vars['m'] == 0:
+            global_vars['m'] = core_functions.sign_var
+        if global_vars['F'] == 0:
+            global_vars['F'] = core_functions.sign_var
 
         if len(unknown_vars) == 0:
             solving = False
