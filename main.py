@@ -413,7 +413,7 @@ class MyWin(QtWidgets.QMainWindow):
                     continue
                 else:
                     global_vars[bar] = res
-                    for u in range(len(unknown_vars)):
+                    for u in range(len(unknown_vars) - 1):
                         if unknown_vars[u] == bar:
                             unknown_vars.pop(u)
 
