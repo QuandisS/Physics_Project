@@ -65,7 +65,7 @@ def return_the_instructions(var):
             return ['y0 + v0y * t - g * t * t / 2', 'y0 + v0 * sin_a * t - g * t * t / 2', '( vy * vy - v0y * v0y ) / ( -2 * g )', '( vy * vy - v0 * sin_a * v0 * sin_a ) / ( -2 * g )']
 
         if var == 'L':
-            return ['x0 + v0 * cos_a * t_all', 'v0 * v0 * cmath.sin( alpha * alpha ) / g']
+            return ['x0 + v0 * cos_a * t_all', 'v0 * v0 * cmath.sin( alpha ) * cmath.sin( alpha ) / g']
 
         if var == 'F':
             return ['test', 'test']
