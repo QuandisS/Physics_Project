@@ -412,7 +412,10 @@ class MyWin(QtWidgets.QMainWindow):
                 if res == 'абракадабра':
                     continue
                 else:
-                    global_vars[bar] = res
+                    if type(res) == complex:
+                        global_vars[bar] = round(float(res.real), 9)
+                    else:
+                        global_vars[bar] = res
                     for u in range(len(unknown_vars) - 1):
                         if unknown_vars[u] == bar:
                             unknown_vars.pop(u)
