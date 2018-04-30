@@ -24,7 +24,7 @@ import math
 init(autoreset=True)
 #--------#
 
-main_version = 'Pre-Alpha Build'
+main_version = 'Pre-Alpha_Build'
 
 # Запуск, приветствие, версии... #
 
@@ -141,6 +141,7 @@ class MyWin(QtWidgets.QMainWindow):
             f.write('\n'* 5)
             f.write(description)
             f.close()
+            self.setings_subwind.close()
             pass
 
         self.setings_subwind.ui.buttonBox.rejected.connect(cancel_clicked)
