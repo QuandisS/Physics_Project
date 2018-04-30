@@ -1,0 +1,13 @@
+///
+
+    To install our program follow these steps!
+
+1. Make sure you have Python installed (version 3.6.4 or later)
+2. In the terminal, go to the installation directory
+3. Check the pip and the existence of the file requirements.txt
+4. Type the command:
+        pip install-r requirements.txt
+5. Run main.py
+6. Rejoice!)
+
+\\\
