@@ -441,6 +441,7 @@ class MyWin(QtWidgets.QMainWindow):
                     for u in range(len(unknown_vars)):
                         if unknown_vars[u] == bar:
                             unknown_vars.pop(u)
+                            break
 
             if len(unknown_vars) == len(unkn_before):
                 if len(unknown_vars) == 0:
