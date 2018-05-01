@@ -55,6 +55,7 @@ def return_the_instructions(var):
 
         if var == 'x0':
             return ['x - vox * t', 'x - v0 * cos_a * t', 'L - v0 * cos_a * t_all', 'L - v0x * t_all']
+
         if var == 'x':
             return ['x0 + v0x * t', 'x0 + v0 * cos_a * t']
 
@@ -66,7 +67,6 @@ def return_the_instructions(var):
 
         if var == 'L':
             return ['x0 + v0 * cos_a * t_all', 'v0 * v0 * cmath.sin( alpha ) * cmath.sin( alpha ) / g']
-
         if var == 'F':
             return ['test', 'test']
 
@@ -203,6 +203,22 @@ def doing_inst(good_inst, list_inst, global_vars):
                 return ex
 
 
+def consid_coord(global_vars, times):
+    coord =[]
+    global_vars["t"] = times
+    try:
+        global_vars["x"] = doing_inst(check_instr(return_the_instructions("x"), global_vars), return_the_instructions("x"), global_vars)
+    except Exception:
+        return 'Heresy in var x'
+    try:
+        global_vars["y"] = doing_inst(check_instr(return_the_instructions("y"), global_vars), return_the_instructions("y"), global_vars)
+    except Exception:
+        return 'Heresy in var y'
+
+    coord.append(global_vars["x"])
+    coord.append(global_vars["y"])
+
+    return coord
 
 
 
