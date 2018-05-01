@@ -61,6 +61,16 @@ log_text = ''
 
 # Главный Класс #
 
+class PlotThread(QThread):
+    def __init__(self):
+        QThread.__init__(self)
+
+    def __del__(self):
+        self.wait()
+
+    def run(self):
+        MyWin.plotting()
+
 class MyWin(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None):
@@ -114,10 +124,10 @@ class MyWin(QtWidgets.QMainWindow):
         print('vars checked!')
 
     def draw_plot(self):
-        L = [0, 1, 2, 3, 4, 5 ,6]
-        self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
-        self.ui.gridLayout.addWidget(self.ui.plot)
-        self.ui.plot.plot(L)
+        #L = [0, 1, 2, 3, 4, 5 ,6]
+        #self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
+        #self.ui.gridLayout.addWidget(self.ui.plot)
+        #self.ui.plot.plot(L)
         self.solve_the_problem()
         pass
 
@@ -354,6 +364,8 @@ class MyWin(QtWidgets.QMainWindow):
 #########################
 
 
+
+
     def solve_the_problem(self):
         global selected_planet
         global selected_speed
@@ -447,7 +459,7 @@ class MyWin(QtWidgets.QMainWindow):
                 if len(unknown_vars) == 0:
                     solving = False
                     solved = True
-                    self.drawing_plot()
+                    #self.drawing_plot()
 
                 else:
                     print('Теперь найденные:', global_vars)
@@ -463,7 +475,32 @@ class MyWin(QtWidgets.QMainWindow):
 
     def drawing_plot(self):
         QMessageBox.information(self, "Plot is drawing...", "Plot is drawing!", QMessageBox.Ok, QMessageBox.Ok)
+
+        self.p_thread = PlotThread
+        self.p_thread.start()
+
+        #self.plotting()
         pass
+
+    def plotting(self):
+
+        self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
+        self.ui.gridLayout.addWidget(self.ui.plot)
+
+        sec = 0
+        if selected_speed == 1:
+            wait = 0.1
+        if selected_speed == 0.5:
+            wait = 0.5
+
+        plotting = False
+
+        while plotting:
+            coords = core_functions.consid_coord(global_vars, sec)
+            x = coords['x']
+            y = coords['y']
+
+            self.ui.plot.plotItem.plot(x, y)
 #########################
 
 
