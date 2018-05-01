@@ -476,7 +476,7 @@ class MyWin(QtWidgets.QMainWindow):
     def drawing_plot(self):
         QMessageBox.information(self, "Plot is drawing...", "Plot is drawing!", QMessageBox.Ok, QMessageBox.Ok)
 
-        self.p_thread = PlotThread
+        self.p_thread = PlotThread()
         self.p_thread.start()
 
         #self.plotting()
