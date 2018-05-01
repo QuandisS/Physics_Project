@@ -437,7 +437,8 @@ class MyWin(QtWidgets.QMainWindow):
                         global_vars[bar] = round(float(res.real), 9)
                     else:
                         global_vars[bar] = res
-                    for u in range(len(unknown_vars) - 1):
+
+                    for u in range(len(unknown_vars)):
                         if unknown_vars[u] == bar:
                             unknown_vars.pop(u)
 
