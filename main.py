@@ -69,7 +69,7 @@ class PlotThread(QThread):
         self.wait()
 
     def run(self):
-        MyWin.plotting()
+        MyWin.plotting(myapp)
 
 class MyWin(QtWidgets.QMainWindow):
 
@@ -476,6 +476,9 @@ class MyWin(QtWidgets.QMainWindow):
     def drawing_plot(self):
         QMessageBox.information(self, "Plot is drawing...", "Plot is drawing!", QMessageBox.Ok, QMessageBox.Ok)
 
+        self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
+        self.ui.gridLayout.addWidget(self.ui.plot)
+
         self.p_thread = PlotThread()
         self.p_thread.start()
 
@@ -484,8 +487,12 @@ class MyWin(QtWidgets.QMainWindow):
 
     def plotting(self):
 
-        self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
-        self.ui.gridLayout.addWidget(self.ui.plot)
+        ##
+
+        #self.ui.plot.plot([0, 1, 2, 3, 4, 5])
+
+        ##
+        self.ui.centralwidget.show()
 
         sec = 0
         if selected_speed == 1:
