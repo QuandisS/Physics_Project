@@ -494,13 +494,16 @@ class MyWin(QtWidgets.QMainWindow):
         ##
         self.ui.centralwidget.show()
 
+        wait = 0.1
+
         sec = 0
+
         if selected_speed == 1:
             wait = 0.1
         if selected_speed == 0.5:
             wait = 0.5
 
-        plotting = False
+        plotting = True
 
         while plotting:
             coords = core_functions.consid_coord(global_vars, sec)
@@ -508,6 +511,12 @@ class MyWin(QtWidgets.QMainWindow):
             y = coords['y']
 
             self.ui.plot.plotItem.plot(x, y)
+
+            sec += 0.1
+            time.sleep(wait)
+
+            if coords['y'] <= 0:
+                plotting = False
 #########################
 
 
