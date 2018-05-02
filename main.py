@@ -507,15 +507,15 @@ class MyWin(QtWidgets.QMainWindow):
 
         while plotting:
             coords = core_functions.consid_coord(global_vars, sec)
-            x = coords['x']
-            y = coords['y']
+            x = coords[0]
+            y = coords[1]
 
-            self.ui.plot.plotItem.plot(x, y)
+            self.ui.plot.plotItem.plot([x, y])
 
             sec += 0.1
             time.sleep(wait)
 
-            if coords['y'] <= 0:
+            if (coords[1] <= 0) and (coords[0] > 0):
                 plotting = False
 #########################
 
