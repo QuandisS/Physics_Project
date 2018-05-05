@@ -478,6 +478,8 @@ class MyWin(QtWidgets.QMainWindow):
 
         self.ui.plot = pg.PlotWidget(self.ui.centralwidget)
         self.ui.gridLayout.addWidget(self.ui.plot)
+        self.sc_item = pg.PlotCurveItem()
+        self.ui.plot.addItem(self.sc_item)
 
         self.p_thread = PlotThread()
         self.p_thread.start()
@@ -492,7 +494,7 @@ class MyWin(QtWidgets.QMainWindow):
         #self.ui.plot.plot([0, 1, 2, 3, 4, 5])
 
         ##
-        self.ui.centralwidget.show()
+        #self.ui.centralwidget.show()
 
         # self.plot_data_item = self.plotItem.plot([], pen=None,
         #     symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
@@ -500,34 +502,49 @@ class MyWin(QtWidgets.QMainWindow):
         # def set_data(self, x, y):
         #     self.plot_data_item.setData(x, y)
 
-        wait = 0.1
+        wait = 0.05
 
         sec = 0
 
         if selected_speed == '1':
-            wait = 0.1
+            wait = 0.05
         if selected_speed == '0,5':
-            wait = 0.5
+            wait = 0.1
 
         plotting = True
 
+        x = np.array([])
+        y = np.array([])
         # self.ui.plot.plotItem.plot([], pen=None,
         #     symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
 
-        s = pg.ScatterPlotItem()
-        self.ui.plot.addItem(s)
+        # sc_item = pg.ScatterPlotItem()
+        # self.ui.plot.addItem(sc_item)
 
+        # spots = [
+        #     {'x': 0, 'y': 0},
+        #     {'pen': None, 'brush': None, 'data': 'zzz'},
+        # ]
+        #
+        # self.sc_item.addPoints(spots=spots)
         while plotting:
             coords = core_functions.consid_coord(global_vars, sec)
-            x = coords[0]
-            y = coords[1]
+            x_app = coords[0]
+            y_app = coords[1]
 
+            x = np.hstack((x, x_app))
+            y = np.hstack((y, y_app))
 
+            # spots = [
+            #     {'x': x, 'y': y},
+            #     {'pen': None, 'brush': None, 'data': 'zzz'},
+            # ]
 
             #self.ui.plot.plotItem.plot(x, y)
-            s.addPoints(x=x, y=y)
+            # self.sc_item.addPoints(spots=spots)
+            self.sc_item.setData(x=x, y=y)
 
-            sec += 0.1
+            sec += 0.05
             time.sleep(wait)
 
             if (coords[1] <= 0) and (coords[0] > 0):

@@ -1,36 +1,28 @@
-import sys
-from PyQt5.QtWidgets import QMainWindow, QAction, qApp, QApplication
-from PyQt5.QtGui import QIcon
+import numpy as np
+import pyqtgraph as pg
+from PyQt5 import  QtCore
+
+plot = pg.plot()
+
+s = pg.PlotCurveItem()
+
+plot.addItem(s)
 
 
-class Example(QMainWindow):
+x = np.array([1, 2, 3])
+y = np.array([1, 2, 3])
 
-    def __init__(self):
-        super().__init__()
+app_x = np.array([4])
+app_y = np.array([4])
 
-        self.initUI()
+x = np.hstack((x, app_x))
+y = np.hstack((y, app_y))
+print(x)
+print(y)
 
-
-    def initUI(self):
-
-        exitAction = QAction(QIcon('exit.png'), '&Exit', self)
-        exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
-        exitAction.triggered.connect(qApp.quit)
-
-        self.statusBar()
-
-        menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-
-        self.setGeometry(300, 300, 300, 200)
-        self.setWindowTitle('Menubar')
-        self.show()
-
+s.setData(x=x, y=y)
 
 if __name__ == '__main__':
-
-    app = QApplication(sys.argv)
-    ex = Example()
-    sys.exit(app.exec_())
+    import sys
+    if sys.flags.interactive != 1 or not hasattr(QtCore, 'PYQT_VERSION'):
+        pg.QtGui.QApplication.exec_()
