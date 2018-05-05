@@ -50,7 +50,7 @@ all_planets = settings_pack.planets
 ###### Selected Settings ############
 
 selected_planet = settings_pack.earth
-selected_speed = 1
+selected_speed = '1'
 global_vars = {}
 log_text = ''
 
@@ -494,23 +494,32 @@ class MyWin(QtWidgets.QMainWindow):
         ##
         self.ui.centralwidget.show()
 
+        # self.plot_data_item = self.plotItem.plot([], pen=None,
+        #     symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
+        #
+        # def set_data(self, x, y):
+        #     self.plot_data_item.setData(x, y)
+
         wait = 0.1
 
         sec = 0
 
-        if selected_speed == 1:
+        if selected_speed == '1':
             wait = 0.1
-        if selected_speed == 0.5:
+        if selected_speed == '0,5':
             wait = 0.5
 
         plotting = True
+
+        self.ui.plot.plotItem.plot([], pen=None,
+            symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
 
         while plotting:
             coords = core_functions.consid_coord(global_vars, sec)
             x = coords[0]
             y = coords[1]
 
-            self.ui.plot.plotItem.plot([x, y])
+            self.ui.plot.plotItem.plot(x, y)
 
             sec += 0.1
             time.sleep(wait)
