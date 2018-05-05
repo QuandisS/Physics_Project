@@ -511,15 +511,21 @@ class MyWin(QtWidgets.QMainWindow):
 
         plotting = True
 
-        self.ui.plot.plotItem.plot([], pen=None,
-            symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
+        # self.ui.plot.plotItem.plot([], pen=None,
+        #     symbolBrush=(255,0,0), symbolSize=5, symbolPen=None)
+
+        s = pg.ScatterPlotItem()
+        self.ui.plot.addItem(s)
 
         while plotting:
             coords = core_functions.consid_coord(global_vars, sec)
             x = coords[0]
             y = coords[1]
 
-            self.ui.plot.plotItem.plot(x, y)
+
+
+            #self.ui.plot.plotItem.plot(x, y)
+            s.addPoints(x=x, y=y)
 
             sec += 0.1
             time.sleep(wait)
