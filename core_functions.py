@@ -205,13 +205,16 @@ def doing_inst(good_inst, list_inst, global_vars):
 
 def consid_coord(global_vars, times):
     coord =[]
+
+    good_instr = 0
+
     global_vars["t"] = times
     try:
-        global_vars["x"] = doing_inst(check_instr(return_the_instructions("x"), global_vars), return_the_instructions("x"), global_vars)
+        global_vars["x"] = doing_inst(good_instr, return_the_instructions("x"), global_vars)
     except Exception:
         return 'Heresy in var x'
     try:
-        global_vars["y"] = doing_inst(check_instr(return_the_instructions("y"), global_vars), return_the_instructions("y"), global_vars)
+        global_vars["y"] = doing_inst(good_instr, return_the_instructions("y"), global_vars)
     except Exception:
         return 'Heresy in var y'
 
