@@ -51,7 +51,7 @@ def return_the_instructions(var):
             return ['( v0y - vy ) / g', '( v0y - v0 * sin_a ) / g', '( x - x0 ) / v0x', '( x - x0 )  / v0 * cos_a']
 
         if var == 'h_max':
-            return ['y0 + v0 * sin_a * 0.5 * t_all - 0.25 * g * t_all * t_all / 2' 'y0 + v0y * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'v0 * v0 * cmath.sin( alpha * alpha ) / ( 2 * g )']
+            return ['y0 + v0 * sin_a * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'y0 + v0y * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'v0 * v0 * sin_a * sin_a / ( 2 * g )']
 
         if var == 'x0':
             return ['x - vox * t', 'x - v0 * cos_a * t', 'L - v0 * cos_a * t_all', 'L - v0x * t_all']
@@ -66,7 +66,7 @@ def return_the_instructions(var):
             return ['y0 + v0y * t - g * t * t / 2', 'y0 + v0 * sin_a * t - g * t * t / 2', '( vy * vy - v0y * v0y ) / ( -2 * g )', '( vy * vy - v0 * sin_a * v0 * sin_a ) / ( -2 * g )']
 
         if var == 'L':
-            return ['x0 + v0 * cos_a * t_all', 'v0 * v0 * cmath.sin( alpha ) * cmath.sin( alpha ) / g']
+            return ['x0 + v0 * cos_a * t_all']
         if var == 'F':
             return ['test', 'test']
 
