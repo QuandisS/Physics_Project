@@ -265,7 +265,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.centralwidget.setPalette(palette)
 
 
-        self.ui.centralwidget.setPalette()
+        self.ui.centralwidget.setPalette(palette)
 
     def set_light(self):
 
