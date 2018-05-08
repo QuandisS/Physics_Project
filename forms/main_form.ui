@@ -110,10 +110,18 @@
     <property name="title">
      <string>Setting</string>
     </property>
+    <widget class="QMenu" name="menuTheme">
+     <property name="title">
+      <string>Theme</string>
+     </property>
+     <addaction name="actionDark"/>
+     <addaction name="actionLight"/>
+    </widget>
     <addaction name="actionSettings_Pack"/>
     <addaction name="actionSpeed"/>
     <addaction name="actionCustom_planet_settings"/>
     <addaction name="separator"/>
+    <addaction name="menuTheme"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -198,6 +206,16 @@
   <action name="actionClear_Log">
    <property name="text">
     <string>Clear Log</string>
+   </property>
+  </action>
+  <action name="actionDark">
+   <property name="text">
+    <string>Dark</string>
+   </property>
+  </action>
+  <action name="actionLight">
+   <property name="text">
+    <string>Light</string>
    </property>
   </action>
  </widget>
