@@ -27,10 +27,10 @@ def response():
 
 def return_the_instructions(var):
         if var == 'v0':
-            return ['v0x / cos_a', 'v0y / sin_a', '( x - x0 ) / ( cos_a * t ) ', '( L - x0 ) / ( cos_a * t_all )', '( y - y0 + g * t * t / 2 ) / ( sin_a * t )', '( t_all * g ) / ( 2 * sin_a )', 'sqrt( ( 2 * g ) / cmath.sin( 2 * alpha ) )', '( vy + g * t ) / sin_a', 'sqrt( vy * vy + 2 * g * y ) / sin_a', 'sqrt( h_max * 2 * g ) / sin_a']
+            return ['v0x / cos_a', 'v0y / sin_a', '( x - x0 ) / ( cos_a * t ) ', '( L - x0 ) / ( cos_a * t_all )', '( y - y0 + g * t * t / 2 ) / ( sin_a * t )', '( t_all * g ) / ( 2 * sin_a )', 'math.sqrt( ( 2 * g ) / cmath.sin( 2 * alpha ) )', '( vy + g * t ) / sin_a', 'math.sqrt( vy * vy + 2 * g * y ) / sin_a', 'math.sqrt( h_max * 2 * g ) / sin_a']
 
         if var == 'alpha':
-            return ['math.radianus( cmath.acos ( cos_a ) )', 'math.radianus( cmath.asin ( sin_a ))', 'math.radianus( cmath.asin( ( ( L * g ) / ( v0 * v0 )) / 2 )', 'math.radianus( sqrt( cmath.asin( ( h_max * 2 * g ) / ( v0 * v0 ) ) ))']
+            return ['math.radianus( cmath.acos ( cos_a ) )', 'math.radianus( cmath.asin ( sin_a ))', 'math.radianus( cmath.asin( ( ( L * g ) / ( v0 * v0 )) / 2 )', 'math.radianus( math.sqrt( cmath.asin( ( h_max * 2 * g ) / ( v0 * v0 ) ) ))']
 
         if var == 'g':
             return ['M * G / ( r * r )']
@@ -39,10 +39,10 @@ def return_the_instructions(var):
             return ['v0 * cos_a', '( x - x0 ) / t', '( L - x0 ) / t_all']
 
         if var == 'v0y':
-            return ['v0 * sin_a', '( y - y0 + g * t * t / 2 ) / t', 't_all * g / 2', 'vy + g * t', 'sqrt( vy * vy + 2 * g * y )', 'sqrt( h_max * 2 * g )']
+            return ['v0 * sin_a', '( y - y0 + g * t * t / 2 ) / t', 't_all * g / 2', 'vy + g * t', 'math.sqrt( vy * vy + 2 * g * y )', 'math.sqrt( h_max * 2 * g )']
 
         if var == 'vy':
-            return ['v0y - g * t', 'v0 * sin_a - g * t', 'sqrt( v0y * v0y - 2 * g * y )']
+            return ['v0y - g * t', 'v0 * sin_a - g * t', 'math.sqrt( v0y * v0y - 2 * g * y )']
 
         if var == 't_all':
             return ['( 2 * v0 * sin_a ) / g', '2 * v0y / g', '( L - x0 ) / ( v0 * cos_a )', '( L - x0 ) / v0x']
@@ -74,7 +74,7 @@ def return_the_instructions(var):
             return ['test', 'test']
 
         if var == 'sin_a':
-            return ['cmath.sin( alpha )', 'v0y / v0', '( y - y0 + g * t * t / 2 ) / ( v0 * t )', 't_all * g / ( 2 * v0 )', '( t * g + vy ) / v0', 'sqrt( h_max * 2 * g ) / v0']
+            return ['cmath.sin( alpha )', 'v0y / v0', '( y - y0 + g * t * t / 2 ) / ( v0 * t )', 't_all * g / ( 2 * v0 )', '( t * g + vy ) / v0', 'math.sqrt( h_max * 2 * g ) / v0']
 
         if var == 'cos_a':
             return ['v0x / v0', '( L - x0 ) / ( v0 * t_all )', '( x - x0 ) / ( v0 * t )', 'cmath.cos( alpha )']
