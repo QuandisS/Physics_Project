@@ -30,7 +30,7 @@ def return_the_instructions(var):
             return ['v0x / cos_a', 'v0y / sin_a', '( x - x0 ) / ( cos_a * t ) ', '( L - x0 ) / ( cos_a * t_all )', '( y - y0 + g * t * t / 2 ) / ( sin_a * t )', '( t_all * g ) / ( 2 * sin_a )', 'math.sqrt( ( 2 * g ) / cmath.sin( 2 * alpha ) )', '( vy + g * t ) / sin_a', 'math.sqrt( vy * vy + 2 * g * y ) / sin_a', 'math.sqrt( h_max * 2 * g ) / sin_a']
 
         if var == 'alpha':
-            return ['math.radianus( cmath.acos ( cos_a ) )', 'math.radianus( cmath.asin ( sin_a ))', 'math.radianus( cmath.asin( ( ( L * g ) / ( v0 * v0 )) / 2 )', 'math.radianus( math.sqrt( cmath.asin( ( h_max * 2 * g ) / ( v0 * v0 ) ) ))']
+            return ['math.radians( cmath.acos ( cos_a ) )', 'math.radians( cmath.asin ( sin_a ))', 'math.radians( cmath.asin( ( ( L * g ) / ( v0 * v0 )) / 2 )', 'math.radians( math.sqrt( cmath.asin( ( h_max * 2 * g ) / ( v0 * v0 ) ) ))']
 
         if var == 'g':
             return ['M * G / ( r * r )']
