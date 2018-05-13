@@ -146,7 +146,7 @@ class Ui_MainWindow(object):
         self.pushButton_6.setText(_translate("MainWindow", "Ввод данных"))
         self.check_vars.setText(_translate("MainWindow", "Проверить данные"))
         self.pushButton_5.setText(_translate("MainWindow", "Создать График"))
-        self.menuSetting.setTitle(_translate("MainWindow", "Setting"))
+        self.menuSetting.setTitle(_translate("MainWindow", "Settings"))
         self.menuTheme.setTitle(_translate("MainWindow", "Theme"))
         self.menuLanguage.setTitle(_translate("MainWindow", "Language"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
