@@ -88,7 +88,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionDocumentation.triggered.connect(self.doc_page_open)
         self.ui.actionSettings_Pack.triggered.connect(self.show_settings)
         self.ui.actionSpeed.triggered.connect(self.show_speed)
-        self.ui.check_vars.clicked.connect(self.check_vars)
+        self.ui.check_vars.clicked.connect(self.checking_vars)
         self.ui.actionCustom_planet_settings.triggered.connect(self.show_custom_settings)
         self.ui.actionExport_log_file.triggered.connect(self.export_log)
         self.ui.actionExport_image_chart.triggered.connect(self.export_img)
@@ -96,6 +96,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.pushButton_6.clicked.connect(self.show_vars)
         self.ui.actionDark.triggered.connect(self.set_dark)
         self.ui.actionLight.triggered.connect(self.set_light)
+        self.ui.actionRussian.triggered.connect(self.set_russian)
+
 
         self.log_add('Hello, this is log!')
 
@@ -112,10 +114,46 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.menuTheme.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_application-x-theme_28903.png"))))
         self.ui.actionDark.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_dark17_216237.png"))))
         self.ui.actionLight.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_icon-ios7-circle-outline_211717.png"))))
+        self.ui.menuLanguage.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_language_1608752.png"))))
+        self.ui.actionRussian.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_Russia_92303.png"))))
+        self.ui.actionEnglish.setIcon(QtGui.QIcon(QtGui.QPixmap(("pics/if_United Kingdom(Great Britain)_16014.png"))))
+
         # PLot
         # PLot
 
-    def check_vars(self):
+    def set_russian(self):
+        _translate = QtCore.QCoreApplication.translate
+        self.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.ui.planet_label.setText(_translate("MainWindow", "TextLabel"))
+        self.ui.speed_label.setText(_translate("MainWindow", "TextLabel"))
+        self.ui.pushButton_6.setText(_translate("MainWindow", "Ввод данных"))
+        self.ui.check_vars.setText(_translate("MainWindow", "Проверить данные"))
+        self.ui.pushButton_5.setText(_translate("MainWindow", "Создать График"))
+        self.ui.menuSetting.setTitle(_translate("MainWindow", "Настройки"))
+        self.ui.menuTheme.setTitle(_translate("MainWindow", "Тема"))
+        self.ui.menuLanguage.setTitle(_translate("MainWindow", "Язык"))
+        self.ui.menuFile.setTitle(_translate("MainWindow", "Файл"))
+        self.ui.menuCredits.setTitle(_translate("MainWindow", "Информация"))
+        self.ui.actionExport_image_chart.setText(_translate("MainWindow", "Экспорт картинки (графика)"))
+        self.ui.actionSettings_Pack.setText(_translate("MainWindow", "Планета"))
+        self.ui.actionSpeed.setText(_translate("MainWindow", "Скорость"))
+        self.ui.actionCustom_planet_settings.setText(_translate("MainWindow", "Свои настройки планеты"))
+        self.ui.actionCredits.setText(_translate("MainWindow", "Разработчики"))
+        self.ui.actionExport_log_file.setText(_translate("MainWindow", "Экспорт файла отчета"))
+        self.ui.actionGitHub_Page.setText(_translate("MainWindow", "GitHub страница"))
+        self.ui.actionjj.setText(_translate("MainWindow", "jj"))
+        self.ui.actionDocumentation.setText(_translate("MainWindow", "Документация"))
+        self.ui.actionGitHub_Page_2.setText(_translate("MainWindow", "GitHub страница"))
+        self.ui.actionClear_Log.setText(_translate("MainWindow", "Очистить поле"))
+        self.ui.actionDark.setText(_translate("MainWindow", "Темная"))
+        self.ui.actionLight.setText(_translate("MainWindow", "Светлая"))
+        self.ui.actionRussian.setText(_translate("MainWindow", "Russian"))
+        self.ui.actionEnglish.setText(_translate("MainWindow", "English"))
+
+    def set_english(self):
+        pass
+
+    def checking_vars(self):
         print('vars is checking...')
 
         self.ui.speed_label.setText('speed: x' + str(selected_speed))

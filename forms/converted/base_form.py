@@ -8,7 +8,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 version = "v1"
 
 class Ui_MainWindow(object):
@@ -70,6 +69,8 @@ class Ui_MainWindow(object):
         self.menuSetting.setObjectName("menuSetting")
         self.menuTheme = QtWidgets.QMenu(self.menuSetting)
         self.menuTheme.setObjectName("menuTheme")
+        self.menuLanguage = QtWidgets.QMenu(self.menuSetting)
+        self.menuLanguage.setObjectName("menuLanguage")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
         self.menuCredits = QtWidgets.QMenu(self.menubar)
@@ -107,13 +108,20 @@ class Ui_MainWindow(object):
         self.actionDark.setObjectName("actionDark")
         self.actionLight = QtWidgets.QAction(MainWindow)
         self.actionLight.setObjectName("actionLight")
+        self.actionRussian = QtWidgets.QAction(MainWindow)
+        self.actionRussian.setObjectName("actionRussian")
+        self.actionEnglish = QtWidgets.QAction(MainWindow)
+        self.actionEnglish.setObjectName("actionEnglish")
         self.menuTheme.addAction(self.actionDark)
         self.menuTheme.addAction(self.actionLight)
+        self.menuLanguage.addAction(self.actionRussian)
+        self.menuLanguage.addAction(self.actionEnglish)
         self.menuSetting.addAction(self.actionSettings_Pack)
         self.menuSetting.addAction(self.actionSpeed)
         self.menuSetting.addAction(self.actionCustom_planet_settings)
         self.menuSetting.addSeparator()
         self.menuSetting.addAction(self.menuTheme.menuAction())
+        self.menuSetting.addAction(self.menuLanguage.menuAction())
         self.menuFile.addAction(self.actionExport_image_chart)
         self.menuFile.addAction(self.actionExport_log_file)
         self.menuFile.addAction(self.actionClear_Log)
@@ -140,6 +148,7 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(_translate("MainWindow", "Создать График"))
         self.menuSetting.setTitle(_translate("MainWindow", "Setting"))
         self.menuTheme.setTitle(_translate("MainWindow", "Theme"))
+        self.menuLanguage.setTitle(_translate("MainWindow", "Language"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuCredits.setTitle(_translate("MainWindow", "Info"))
         self.actionExport_image_chart.setText(_translate("MainWindow", "Export image (chart)"))
@@ -155,4 +164,6 @@ class Ui_MainWindow(object):
         self.actionClear_Log.setText(_translate("MainWindow", "Clear Log"))
         self.actionDark.setText(_translate("MainWindow", "Dark"))
         self.actionLight.setText(_translate("MainWindow", "Light"))
+        self.actionRussian.setText(_translate("MainWindow", "Russian"))
+        self.actionEnglish.setText(_translate("MainWindow", "English"))
 

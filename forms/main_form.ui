@@ -117,11 +117,19 @@
      <addaction name="actionDark"/>
      <addaction name="actionLight"/>
     </widget>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <addaction name="actionRussian"/>
+     <addaction name="actionEnglish"/>
+    </widget>
     <addaction name="actionSettings_Pack"/>
     <addaction name="actionSpeed"/>
     <addaction name="actionCustom_planet_settings"/>
     <addaction name="separator"/>
     <addaction name="menuTheme"/>
+    <addaction name="menuLanguage"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -216,6 +224,16 @@
   <action name="actionLight">
    <property name="text">
     <string>Light</string>
+   </property>
+  </action>
+  <action name="actionRussian">
+   <property name="text">
+    <string>Russian</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
    </property>
   </action>
  </widget>
