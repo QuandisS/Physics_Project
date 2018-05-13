@@ -92,9 +92,7 @@ class Ui_MainWindow(object):
         self.lineEdit_12 = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.lineEdit_12.setObjectName("lineEdit_12")
         self.formLayout.setWidget(11, QtWidgets.QFormLayout.FieldRole, self.lineEdit_12)
-        self.pushButton = QtWidgets.QPushButton(self.formLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.formLayout.setWidget(15, QtWidgets.QFormLayout.FieldRole, self.pushButton)
+
 
         self.label_13 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_13.setObjectName("label_13")
@@ -116,6 +114,10 @@ class Ui_MainWindow(object):
         self.lineEdit_15.setObjectName("lineEdit_15")
         self.formLayout.setWidget(14, QtWidgets.QFormLayout.FieldRole, self.lineEdit_15)
         self.formLayout.setWidget(14, QtWidgets.QFormLayout.LabelRole, self.label_15)
+
+        self.pushButton = QtWidgets.QPushButton(self.formLayoutWidget)
+        self.pushButton.setObjectName("pushButton")
+        self.formLayout.setWidget(15, QtWidgets.QFormLayout.FieldRole, self.pushButton)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
