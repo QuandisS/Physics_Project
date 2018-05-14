@@ -17,6 +17,7 @@ import numpy as np
 import webbrowser
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 import math
+import localizations
 
 
 
@@ -53,6 +54,7 @@ selected_planet = settings_pack.earth
 selected_speed = '1'
 global_vars = {}
 log_text = ''
+selected_localization = None
 
 #####################################
 
@@ -122,6 +124,8 @@ class MyWin(QtWidgets.QMainWindow):
         # PLot
 
     def set_russian(self):
+        global selected_localization
+        selected_localization = localizations.russian
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.ui.planet_label.setText(_translate("MainWindow", "TextLabel"))
@@ -151,6 +155,8 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionEnglish.setText(_translate("MainWindow", "English"))
 
     def set_english(self):
+        global selected_localization
+        selected_localization = localizations.english
         pass
 
     def checking_vars(self):
