@@ -45,13 +45,13 @@ def return_the_instructions(var):
             return ['v0y - g * t', 'v0 * sin_a - g * t', 'math.sqrt( v0y * v0y - 2 * g * y )']
 
         if var == 't_all':
-            return ['( 2 * v0 * sin_a ) / g', '2 * v0y / g', '( L - x0 ) / ( v0 * cos_a )', '( L - x0 ) / v0x']
+            return ['( L - x0 ) / ( v0 * cos_a )', '( L - x0 ) / v0x']
 
         if var == 't':
             return ['( v0y - vy ) / g', '( v0y - v0 * sin_a ) / g', '( x - x0 ) / v0x', '( x - x0 )  / v0 * cos_a']
 
         if var == 'h_max':
-            return ['y0 + v0 * sin_a * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'y0 + v0y * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'v0 * v0 * sin_a * sin_a / ( 2 * g )']
+            return ['y0 + v0 * sin_a * 0.5 * t_all - 0.25 * g * t_all * t_all / 2', 'y0 + v0y * 0.5 * t_all - 0.25 * g * t_all * t_all / 2']
 
         if var == 'x0':
             return ['x - vox * t', 'x - v0 * cos_a * t', 'L - v0 * cos_a * t_all', 'L - v0x * t_all']
@@ -66,7 +66,8 @@ def return_the_instructions(var):
             return ['y0 + v0y * t - g * t * t / 2', 'y0 + v0 * sin_a * t - g * t * t / 2', '( vy * vy - v0y * v0y ) / ( -2 * g )', '( vy * vy - v0 * sin_a * v0 * sin_a ) / ( -2 * g )']
 
         if var == 'L':
-            return ['x0 + v0 * cos_a * t_all']
+            return ['x0 + v0 * cos_a * t_all', 'x0 + v0x * t_all', 'v0 * v0 * math.sin( alpha * 2 ) / g']
+
         if var == 'F':
             return ['test', 'test']
 
@@ -81,6 +82,7 @@ def return_the_instructions(var):
 
 
 ######
+
 
 # функция берет массив инструкций и словарь переменных
 # и ищет инстукцию в которой все переменные известны
@@ -224,4 +226,12 @@ def consid_coord(global_vars, times):
     return coord
 
 
+def gravity(gravity_constant, planet_mass, planet_radius, y):
+
+    try:
+        g = gravity_constant * planet_mass / ((planet_radius + y) * (planet_radius + y))
+    except Exception:
+        return "Heresy in var g"
+
+    return g
 
