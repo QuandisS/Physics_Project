@@ -99,7 +99,7 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.actionDark.triggered.connect(self.set_dark)
         self.ui.actionLight.triggered.connect(self.set_light)
         self.ui.actionRussian.triggered.connect(self.set_russian)
-
+        self.ui.actionEnglish.triggered.connect(self.set_english)
 
         self.log_add('Hello, this is log!')
 
@@ -157,6 +157,33 @@ class MyWin(QtWidgets.QMainWindow):
     def set_english(self):
         global selected_localization
         selected_localization = localizations.english
+        _translate = QtCore.QCoreApplication.translate
+        self.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.ui.planet_label.setText(_translate("MainWindow", "TextLabel"))
+        self.ui.speed_label.setText(_translate("MainWindow", "TextLabel"))
+        self.ui.pushButton_6.setText(_translate("MainWindow", "Enter data"))
+        self.ui.check_vars.setText(_translate("MainWindow", "Check vars"))
+        self.ui.pushButton_5.setText(_translate("MainWindow", "Create Graph"))
+        self.ui.menuSetting.setTitle(_translate("MainWindow", "Settings"))
+        self.ui.menuTheme.setTitle(_translate("MainWindow", "Theme"))
+        self.ui.menuLanguage.setTitle(_translate("MainWindow", "Language"))
+        self.ui.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.ui.menuCredits.setTitle(_translate("MainWindow", "Info"))
+        self.ui.actionExport_image_chart.setText(_translate("MainWindow", "Graph picture export"))
+        self.ui.actionSettings_Pack.setText(_translate("MainWindow", "PLanet"))
+        self.ui.actionSpeed.setText(_translate("MainWindow", "Speed"))
+        self.ui.actionCustom_planet_settings.setText(_translate("MainWindow", "Custom planet settings"))
+        self.ui.actionCredits.setText(_translate("MainWindow", "Credits"))
+        self.ui.actionExport_log_file.setText(_translate("MainWindow", "Log-file export"))
+        self.ui.actionGitHub_Page.setText(_translate("MainWindow", "GitHub page"))
+        self.ui.actionjj.setText(_translate("MainWindow", "jj"))
+        self.ui.actionDocumentation.setText(_translate("MainWindow", "Documentation"))
+        self.ui.actionGitHub_Page_2.setText(_translate("MainWindow", "GitHub page"))
+        self.ui.actionClear_Log.setText(_translate("MainWindow", "Clear log"))
+        self.ui.actionDark.setText(_translate("MainWindow", "Dark"))
+        self.ui.actionLight.setText(_translate("MainWindow", "Bright"))
+        self.ui.actionRussian.setText(_translate("MainWindow", "Russian"))
+        self.ui.actionEnglish.setText(_translate("MainWindow", "English"))
         pass
 
     def checking_vars(self):
