@@ -857,6 +857,7 @@ class MyWin(QtWidgets.QMainWindow):
 
     def plotting(self):
 
+        global global_vars
         ##
 
         #self.ui.plot.plot([0, 1, 2, 3, 4, 5])
@@ -908,6 +909,8 @@ class MyWin(QtWidgets.QMainWindow):
             #     {'pen': None, 'brush': None, 'data': 'zzz'},
             # ]
 
+
+            global_vars["g"] = core_functions.gravity(constants.G, selected_planet.mass, selected_planet.radius, y_app)
             #self.ui.plot.plotItem.plot(x, y)
             # self.sc_item.addPoints(spots=spots)
             self.sc_item.setData(x=x, y=y)
