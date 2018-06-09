@@ -235,3 +235,18 @@ def gravity(gravity_constant, planet_mass, planet_radius, y):
 
     return g
 
+def log_add_value(global_vars):
+
+    a = "Начальная скорость : " + global_vars["v0"] + " m/c" + "\n"
+    b = "Скорость по оси X : " + global_vars["v0x"] + " m/c"+ "\n"
+    c ="Скорость по оси Y : " + global_vars["v0y"] + "m/c"+ "\n"
+    d = "Угол броска : " + global_vars["alpha"] + " degrees"+ "\n"
+    e = "Время полета : " + global_vars["t_all"] + " c"+ "\n"
+    f = "Дальность полета : " + global_vars["L"] + " m"+ "\n"
+    i = "Масса тела : " + global_vars["m"] + " kilograms"+ "\n"
+    j = "Максимальная высота : " + global_vars["h_max"] + " m"+ "\n"
+    k = "Начальные координаты : " + global_vars["x"] + " " + global_vars["y"] +"\n"
+    l ="Сила броска : " + global_vars["F"] + " N" + "\n"
+
+    all = a + b + c + d + e + f + i + j + k + l
+    return all

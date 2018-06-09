@@ -722,7 +722,6 @@ class MyWin(QtWidgets.QMainWindow):
         self.ui.textEdit.setText(log_text)
 
 
-
     def git_page_open(self):
         webbrowser.open('https://github.com/QuandisS/Physics_Project')
 
